@@ -18,8 +18,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(username, password) {
+  async login(username, password) {
     this.spinning = true;
+    await this.delay(1500);
     this.loginDetails.email = username;
     this.loginDetails.password = password;
     this.auth.login(this.loginDetails).subscribe(data => {
@@ -31,6 +32,9 @@ export class LoginComponent implements OnInit {
       }
 
     });
+  }
+  delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }
