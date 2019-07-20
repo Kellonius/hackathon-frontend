@@ -5,6 +5,7 @@ export class MedicalProfessional {
     email: string;
 
 
+
     fullName() {
       return this.firstName + ' ' + this.lastName;
     }

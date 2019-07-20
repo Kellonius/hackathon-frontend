@@ -3,7 +3,7 @@
 
 </div>
 
-<table class="medList" mat-table [dataSource]="patient.medications">
+<table class="medList" mat-table [dataSource]="patient.Scripts">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name</th>
     <td mat-cell *matCellDef="let element">{{element.name}}</td>
