@@ -8,9 +8,18 @@ import { MedicalProfessionalDetailPageComponent } from './components/medical-pro
 
 //Material Design
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatAutocompleteModule, MatButtonModule, MatInputModule, MatCheckboxModule, MatCardModule, MatFormFieldModule, MatSelectModule, MatTableModule, MatExpansionModule, MatListModule, MatBadgeModule, MatChipsModule, MatDatepickerModule, MatRadioModule, MatSliderModule, MatSlideToggleModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatGridListModule, MatStepperModule, MatTabsModule, MatButtonToggleModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatDialogModule, MatTooltipModule, MatSnackBarModule, MatSortModule, MatPaginatorModule} from '@angular/material';
+import { 
+      MatAutocompleteModule, MatButtonModule, MatInputModule, MatCheckboxModule, 
+      MatCardModule, MatFormFieldModule, MatSelectModule, MatTableModule, MatExpansionModule,
+      MatListModule, MatBadgeModule, MatChipsModule, MatDatepickerModule, MatRadioModule,
+      MatSliderModule, MatSlideToggleModule, MatMenuModule, MatSidenavModule, MatToolbarModule,
+      MatGridListModule, MatStepperModule, MatTabsModule, MatButtonToggleModule, MatIconModule,
+      MatProgressSpinnerModule, MatProgressBarModule, MatDialogModule, MatTooltipModule,
+      MatSnackBarModule, MatSortModule, MatPaginatorModule
+    } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientWrapperService } from './services/http-wrapper.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +32,7 @@ import { HttpClientWrapperService } from './services/http-wrapper.service';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatButtonModule,

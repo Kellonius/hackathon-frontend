@@ -10,7 +10,11 @@ export class MedicalProfessionalService {
 
   constructor(private httpWrapper: HttpClientWrapperService) { }
 
-  getMedicalProfessionalInformation(id: number): Observable<MedicalProfessionalResponse> {
-    return this.httpWrapper.get('/medical-professional/' + id);
+  getMedicalProfessionalInformation(id: number): MedicalProfessionalResponse {
+     return {
+        name: 'string',
+        contactInformation: ['1', '2']
+      };
+    // return this.httpWrapper.get('/medical-professional/' + id);
   }
 }

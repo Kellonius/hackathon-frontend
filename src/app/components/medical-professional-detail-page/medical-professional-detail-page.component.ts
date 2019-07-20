@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicalProfessionalService } from '../../services/medical-professional/medical-professional.service';
 import { MedicalProfessional } from '../../models/medical-professional';
+import { MedicalProfessionalResponse } from 'src/app/responses/medical-professional-response';
 
 @Component({
   selector: 'app-medical-professional-detail-page',
@@ -8,7 +9,7 @@ import { MedicalProfessional } from '../../models/medical-professional';
   styleUrls: ['./medical-professional-detail-page.component.sass']
 })
 export class MedicalProfessionalDetailPageComponent implements OnInit {
-  medicalProfessional: MedicalProfessional;
+  medicalProfessional: MedicalProfessionalResponse;
 
   constructor(private mpService: MedicalProfessionalService) { }
 
@@ -17,8 +18,6 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   }
 
   getInfo() {
-    this.mpService.getMedicalProfessionalInformation(1).subscribe(() => {
-
-    });
+    this.medicalProfessional = this.mpService.getMedicalProfessionalInformation(1);
   }
 }
