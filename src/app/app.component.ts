@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import 'hammerjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,10 @@ import 'hammerjs';
 })
 export class AppComponent {
   title = 'hackathon-frontend';
+
+  constructor(private router: Router) { }
+
+  navigate(route: string[]) {
+    this.router.navigate(route);
+  }
 }

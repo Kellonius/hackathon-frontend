@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PatientDetailPageComponent } from './components/patient-detail-page/patient-detail-page.component';
+import { MedicalProfessionalDetailPageComponent } from './components/medical-professional-detail-page/medical-professional-detail-page.component';
 
 //Material Design
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +14,9 @@ import { HttpClientWrapperService } from './services/http-wrapper.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PatientDetailPageComponent,
+    MedicalProfessionalDetailPageComponent
   ],
   imports: [
     AppRoutingModule,
