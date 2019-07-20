@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PatientDataService} from '../../services/patient-data/patient-data.service';
 import {PatientData} from '../../models/patient-data';
-import {Medication} from '../../models/medication';
+import {Script} from '../../models/script';
 import {MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -15,16 +15,16 @@ export class PatientDetailPageComponent implements OnInit {
 
   columns = ['name', 'dose', 'route', 'frequency'];
 
-  datasource: MatTableDataSource<Medication> = new MatTableDataSource<Medication>();
+  datasource: MatTableDataSource<Script> = new MatTableDataSource<Script>();
 
   constructor(private patientDetailService: PatientDataService) { }
 
   ngOnInit() {
-    const med = new Medication();
-    med.name = 'Metoprolol';
-    med.dose = '10mg';
-    med.route = 'PO';
-    med.frequency = 'Twice Daily';
+    const med = new Script();
+    med.medicationId = 'Metoprolol';
+    med.dosage = '10mg';
+    med.medicationRoute = 'PO';
+    med.medicationTime = 'Twice Daily';
     this.patient.id = 1;
     this.patient.firstName = 'First';
     this.patient.lastName = 'Last';

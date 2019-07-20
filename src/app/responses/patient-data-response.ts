@@ -1,10 +1,11 @@
-import {Medication} from '../models/medication';
+import {Script} from '../models/script';
 
 
 export class PatientDataResponse {
   firstName: string;
   lastName: string;
   Gender: string;
+  AtRisk: string;
   DOB: Date;
-  medications: Medication[];
+  Scripts: Script[];
 }
