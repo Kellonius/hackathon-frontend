@@ -9,14 +9,18 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class AddPatientDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AddPatientDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data) { }
+  constructor(public dialogRef: MatDialogRef<AddPatientDialogComponent>) {
+  }
 
   ngOnInit() {
   }
 
   onNoClick() {
-  this.dialogRef.close();
-}
+    this.dialogRef.close();
+  }
+
+  submit(firstName, lastName, DOB, gender) {
+
+  }
 
 }
