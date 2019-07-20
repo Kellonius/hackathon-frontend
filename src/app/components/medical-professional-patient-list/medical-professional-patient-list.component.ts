@@ -76,6 +76,11 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
                       console.log(this.patientList);
     });
   }
+
+  
+  fullName() {
+    return this.user.firstName + ' ' + this.user.lastName;
+  }
 }
 
   // patientList = [
