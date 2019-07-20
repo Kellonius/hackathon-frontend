@@ -8,7 +8,7 @@ export class HttpClientWrapperService {
     constructor(private http: HttpClient) {
     }
 
-    baseUrl = 'https://localhost:4200/';
+    baseUrl = 'https://localhost:50023/';
 
     blob<T>(body: T, url: string): Observable<Blob> {
         return this.http.post(url, body, { responseType: 'blob' });

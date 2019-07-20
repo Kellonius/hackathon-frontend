@@ -19,4 +19,8 @@ export class APIService {
       };
     // return this.httpWrapper.get('/medical-professional/' + id);
   }
+
+  getMP() {
+    return this.httpWrapper.get({},'MedicalProfessionals/GetPatientsForMP?userEmail=joe.doctor@stf.com');
+  }
 }

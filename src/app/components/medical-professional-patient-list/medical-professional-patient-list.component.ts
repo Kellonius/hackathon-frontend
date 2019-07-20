@@ -81,12 +81,9 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   constructor(private apiService: APIService) { }
 
   ngOnInit() {
-  }
-
-  setData(value: string): boolean {
-    if (value == 'notification' || value == 'renewal') {
-      return false;
-    }
+    this.apiService.getMP().subscribe(() => {
+      console.log('something happened');
+    });
   }
 }
 
