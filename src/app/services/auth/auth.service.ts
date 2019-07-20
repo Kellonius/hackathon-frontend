@@ -8,11 +8,26 @@ import {MedicalProfessional} from '../../models/medical-professional';
 })
 export class AuthService {
 
+
   loggedInUser: MedicalProfessional;
 
-  constructor(private httpWrapper: HttpClientWrapperService) { }
+  constructor(private httpWrapper: HttpClientWrapperService) {
+
+    // leave uncommented to fake a user so you don't have to login each refresh
+   this.fakeLogin();
+  }
 
   login(details): Observable<any> {
     return this.httpWrapper.post(details, 'Users/LoginUser');
+  }
+
+
+  fakeLogin() {
+    const user = new MedicalProfessional();
+    user.id = 54;
+    user.email = 'joe.doctor@stf.com';
+    user.firstName = 'Joe';
+    user.lastName = 'Doctor';
+    this.loggedInUser = user;
   }
 }
