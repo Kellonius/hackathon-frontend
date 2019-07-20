@@ -1,0 +1,52 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 50vh;
+  border: 2px solid #b216a6;
+  padding: 20px;
+  border-radius: 25px;
+  background: white;
+
+}
+
+.img-wrap {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img-active {
+    animation: rotation 0.5s infinite linear;
+  }
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(178,22,166, 1);
+  height: calc(100vh - 90px);
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 75%;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(359deg);
+  }
+}

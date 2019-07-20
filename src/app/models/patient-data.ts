@@ -1,8 +1,8 @@
-import {Medication} from './medication';
+import {Script} from './script';
 
 export class PatientData {
   id: number;
   firstName: string;
   lastName: string;
-  medications: Medication[];
+  Scripts: Script[];
 }

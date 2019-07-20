@@ -1,5 +1,11 @@
 export class MedicalProfessional {
     id: number;
-    name: string;
-    contactInformation: string[];
+    firstName: string;
+    lastName: string;
+    email: string;
+
+
+    fullName() {
+      return this.firstName + ' ' + this.lastName;
+    }
   }

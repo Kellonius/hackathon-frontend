@@ -3,15 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import {PatientDetailPageComponent} from './components/patient-detail-page/patient-detail-page.component';
 import { MedicalProfessionalDetailPageComponent } from './components/medical-professional-detail-page/medical-professional-detail-page.component';
 import { MedicalProfessionalPatientListComponent } from './components/medical-professional-patient-list/medical-professional-patient-list.component';
+import {LoginComponent} from './components/login/login.component';
+import {AuthGuardGuard} from './guards/auth-guard.guard';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'patient/:id',
     component: PatientDetailPageComponent
   },
   {
     path: 'medical-professional-patient-list',
-    component: MedicalProfessionalPatientListComponent
+    component: MedicalProfessionalPatientListComponent,
+    canActivate: [AuthGuardGuard]
   },
    // {
   //   path: 'pharmacy/:id',
@@ -19,12 +26,14 @@ const routes: Routes = [
   // }
   {
     path: 'medical-professional/:id',
-    component: MedicalProfessionalDetailPageComponent
+    component: MedicalProfessionalDetailPageComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: '',
     redirectTo: '/medical-professional-patient-list',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuardGuard]
   },
   // {
   //   path: 'patient-search',
