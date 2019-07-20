@@ -33,13 +33,14 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   setData(value: string): boolean {
-    if (value == 'notification' || value == 'renewal') {
+    if (value === 'notification' || value === 'renewal') {
       return false;
     }
   }
 }
 
 
+<<<<<<< HEAD
 
 
   // patientList = [
@@ -84,3 +85,22 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   //     ]
   //   }
   // ];
+||||||| merged common ancestors
+export interface Script {
+  drugName: string;
+  dose: number;
+  frequency: number;
+  issueDate: string;
+  filled: boolean;
+  pickedUp: boolean;
+}
+=======
+export interface Script {
+  drugName: string;
+  dose: number;
+  frequency: number;
+  issueDate: string;
+  filled: boolean;
+  pickedUp: boolean;
+}
+>>>>>>> 82ea469393add9104fab8f3e5249844f25bd0885

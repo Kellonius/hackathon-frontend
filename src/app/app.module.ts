@@ -47,6 +47,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HeaderComponent} from './components/header/header.component';
 import {MedicalProfessionalPatientListComponent} from './components/medical-professional-patient-list/medical-professional-patient-list.component';
 import {LoginComponent} from './components/login/login.component';
+import {AuthService} from './services/auth/auth.service';
 
 
 @NgModule({
@@ -98,7 +99,8 @@ import {LoginComponent} from './components/login/login.component';
   ],
   providers: [
     HttpClientWrapperService,
-    PatientDataService
+    PatientDataService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
