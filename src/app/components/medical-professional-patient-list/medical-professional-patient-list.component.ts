@@ -38,7 +38,7 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   ngOnInit() {
     this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(
       patientList => {this.patientList = patientList;
-                      console.log(this.patientList);
+
     });
   }
 

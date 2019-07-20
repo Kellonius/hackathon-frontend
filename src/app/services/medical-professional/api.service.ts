@@ -12,13 +12,8 @@ export class APIService {
 
   constructor(private httpWrapper: HttpClientWrapperService) { }
 
-  getMedicalProfessionalInformation(email: string): MedicalProfessionalResponse {
-     return {
-      name: 'MP-Name',
-      email: 'mpemail@test.com',
-      phoneNumber: '867-5309',
-      address: '123 Easy Street'
-      };
+  getMedicalProfessionalInformation(email: string): Observable<MedicalProfessionalResponse> {
+    return this.httpWrapper.get<MedicalProfessionalResponse>('MedicalProfessionals/GetMedicalProfessionalData?userEmail=' + email);
     // var result = this.httpWrapper.get<MedicalProfessionalResponse>('/MedicalProfessionals/GetMedicalProfessionalData?userEmail=joe.doctor@stf.com');
     // console.log(result);
     //  return null;

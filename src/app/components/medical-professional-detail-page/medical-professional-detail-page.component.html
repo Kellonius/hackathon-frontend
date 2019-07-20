@@ -1,6 +1,6 @@
-<div class="padding">
+<div class="padding" *ngIf="medicalProfessional !== undefined">
   <div class="mp-name padding">
-    {{medicalProfessional.name}}
+    {{medicalProfessional.fullname}}
   </div>
 
   <div class="example-form">
@@ -8,7 +8,7 @@
       <input 
       matInput 
       placeholder="Phone Number"
-      [(ngModel)]="medicalProfessional.phoneNumber">
+      [(ngModel)]="medicalProfessional.Phone">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -22,7 +22,7 @@
       <input 
       matInput
       placeholder="Address"
-      [(ngModel)]="medicalProfessional.address">
+      [(ngModel)]="medicalProfessional.Address">
     </mat-form-field>
 
     <div class="buttons">
