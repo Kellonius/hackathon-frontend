@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PatientDetailService} from '../../services/patient-detail/patient-detail.service';
+import {PatientDataService} from '../../services/patient-data/patient-data.service';
 import {PatientData} from '../../models/patient-data';
 import {Medication} from '../../models/medication';
 import {MatTableDataSource} from '@angular/material';
@@ -17,7 +17,7 @@ export class PatientDetailPageComponent implements OnInit {
 
   datasource: MatTableDataSource<Medication> = new MatTableDataSource<Medication>();
 
-  constructor(private patientDetailService: PatientDetailService) { }
+  constructor(private patientDetailService: PatientDataService) { }
 
   ngOnInit() {
     const med = new Medication();
