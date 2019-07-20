@@ -36,11 +36,6 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-    this.apiService.getMP().subscribe(() => {
-      console.log('something happened');
-    });
-=======
     this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(
       patientList => {this.patientList = patientList;
                       console.log(this.patientList);
@@ -51,7 +46,6 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
     if (value === 'notification' || value === 'renewal') {
       return false;
     }
->>>>>>> 39342356c76bb42338fd7fb48c1c0af5df15c49d
   }
 
   openNewUserModal() {
