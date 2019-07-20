@@ -1,5 +1,7 @@
 export class MedicalProfessionalResponse{
     name: string;
-    contactInformation: string[];
+    email: string;
+    phoneNumber: string;
+    address: string;
   }
   
