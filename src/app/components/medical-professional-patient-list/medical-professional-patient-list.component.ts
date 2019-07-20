@@ -3,6 +3,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { APIService } from 'src/app/services/medical-professional/api.service';
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { Script } from 'src/app/models/script';
+import {AuthService} from '../../services/auth/auth.service';
+import {MedicalProfessional} from '../../models/medical-professional';
 
 @Component({
   selector: 'app-medical-professional-patient-list',
@@ -21,14 +23,18 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
 
   columns2 = ['Generic Drug Name', 'Medical Drug Name', 'Dose', 'Frequency', 'Issue Date', 'Filled', 'Picked Up'];
 
-  expandedElement: Script | null;  
+  expandedElement: Script | null;
   patientList: PatientDataResponse[];
+  user: MedicalProfessional;
 
-  constructor(private apiService: APIService) { }
+  constructor(private apiService: APIService, private authService: AuthService) {
+    this.user = this.authService.loggedInUser;
+  }
 
   ngOnInit() {
-    this.apiService.getMedicalProfessionalPatientInformation("joe.doctor@stf.com").subscribe(patientList => {this.patientList = patientList;
-    console.log(this.patientList);
+    this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(
+      patientList => {this.patientList = patientList;
+                      console.log(this.patientList);
     });
   }
 
@@ -55,7 +61,7 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   //         pickedUp: false
   //       }
   //     ]
-  //   }, 
+  //   },
   //   {
   //     Name: 'Jimothy Ross',
   //     DOB: '7/21/1970',
