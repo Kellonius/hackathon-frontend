@@ -28,8 +28,12 @@ export class AddPatientDialogComponent implements OnInit {
   }
 
   onNoClick() {
-  this.dialogRef.close();
-}
+    this.dialogRef.close();
+  }
+
+  submit(firstName, lastName, DOB, gender) {
+
+  }
 
 getNonPatients() {
   this.apiService.getNonpatientsForMP().subscribe(patientList => {

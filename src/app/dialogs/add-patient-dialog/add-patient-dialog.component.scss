@@ -31,3 +31,38 @@ mat-tab {
 mat-icon {
   color: gray;
 }
+
+.name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  mat-form-field {
+    margin-right: 10px;
+  }
+}
+
+.add-new-container {
+  flex-direction: column;
+  display: flex;
+}
+
+.attributes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  mat-form-field {
+    margin-right: 10px;
+  }
+}
+
+.buttons {
+  margin: 10px 0 10px 0;
+  float: right;
+
+  button {
+    float: right;
+    margin-right: 10px;
+  }
+}
