@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicalProfessionalService } from '../../services/medical-professional/medical-professional.service';
 import { MedicalProfessionalResponse } from 'src/app/responses/medical-professional-response';
 import {FormControl, FormGroup} from '@angular/forms';
 import {APIService} from '../../services/medical-professional/api.service';
