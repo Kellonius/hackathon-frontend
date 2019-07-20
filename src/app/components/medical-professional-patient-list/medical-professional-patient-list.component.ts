@@ -33,6 +33,7 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   constructor(private apiService: APIService,
               private authService: AuthService,
               private dialog: MatDialog) {
+    console.log(this.authService.loggedInUser);
     this.user = this.authService.loggedInUser;
   }
 
