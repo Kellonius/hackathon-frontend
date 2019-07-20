@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginDetails: UserLoginRequest = new UserLoginRequest();
+  spinning = false;
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -18,12 +19,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(username, password) {
+    this.spinning = true;
     this.loginDetails.email = username;
     this.loginDetails.password = password;
     this.auth.login(this.loginDetails).subscribe(data => {
       if (data) {
         this.auth.loggedInUser = data;
         this.router.navigate(['/']).then();
+      } else {
+        this.spinning = false;
       }
 
     });
