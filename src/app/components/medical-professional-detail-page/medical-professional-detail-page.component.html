@@ -1,11 +1,26 @@
-<div>
-   test
+<div class="mp-name padding">
+  {{medicalProfessional.name}}
 </div>
 
+<div class="example-form">
+  <mat-form-field class="example-full-width">
+    <input 
+    matInput 
+    placeholder="Phone Number"
+    [(ngModel)]="medicalProfessional.phoneNumber">
+  </mat-form-field>
 
+  <mat-form-field class="example-full-width">
+    <input 
+    matInput 
+    placeholder="Email" 
+    [(ngModel)]="medicalProfessional.email">
+  </mat-form-field>
 
-
-
-<p>
-  medical-professional-detail-page works!
-</p>
+  <mat-form-field class="example-full-width">
+    <input 
+    matInput
+    placeholder="Address"
+    [(ngModel)]="medicalProfessional.address">
+  </mat-form-field>
+</div>

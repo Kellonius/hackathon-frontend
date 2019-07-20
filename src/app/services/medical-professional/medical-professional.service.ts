@@ -12,8 +12,10 @@ export class MedicalProfessionalService {
 
   getMedicalProfessionalInformation(id: number): MedicalProfessionalResponse {
      return {
-        name: 'string',
-        contactInformation: ['1', '2']
+      name: 'MP-Name',
+      email: 'mpemail@test.com',
+      phoneNumber: '867-5309',
+      address: '123 Easy Street'
       };
     // return this.httpWrapper.get('/medical-professional/' + id);
   }
