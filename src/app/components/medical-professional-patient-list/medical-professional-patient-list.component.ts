@@ -84,7 +84,7 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   setData(value: string): boolean {
-    if (value == 'notification' || value == 'renewal') {
+    if (value === 'notification' || value === 'renewal') {
       return false;
     }
   }
