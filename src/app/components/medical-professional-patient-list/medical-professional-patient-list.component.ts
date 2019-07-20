@@ -50,7 +50,8 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
 
   openNewUserModal() {
     this.dialog.open(AddPatientDialogComponent, {
-      width: '50%'
+      width: '80%',
+      panelClass: 'custom-dialog-container'
     });
   }
 }

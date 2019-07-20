@@ -1,3 +1,18 @@
-<p>
-  add-patient-dialog works!
-</p>
+<mat-tab-group mat-stretch-tabs>
+
+  <mat-tab label="Search">
+    <div class="search">
+      <mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" placeholder="Search for Patient">
+      </mat-form-field>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Add new">
+    <mat-form-field>
+      <input #firstName matInput type="text" placeholder="First Name">
+      <input #lastName matInput type="text" placeholder="Last Name">
+    </mat-form-field>
+  </mat-tab>
+</mat-tab-group>
