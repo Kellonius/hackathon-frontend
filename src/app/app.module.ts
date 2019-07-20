@@ -48,6 +48,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {MedicalProfessionalPatientListComponent} from './components/medical-professional-patient-list/medical-professional-patient-list.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthService} from './services/auth/auth.service';
+import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {AuthService} from './services/auth/auth.service';
     MedicalProfessionalDetailPageComponent,
     HeaderComponent,
     MedicalProfessionalPatientListComponent,
-    LoginComponent
+    LoginComponent,
+    AddPatientDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -102,7 +104,8 @@ import {AuthService} from './services/auth/auth.service';
     PatientDataService,
     AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddPatientDialogComponent]
 })
 export class AppModule {
 }

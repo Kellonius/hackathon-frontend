@@ -5,6 +5,8 @@ import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { Script } from 'src/app/models/script';
 import {AuthService} from '../../services/auth/auth.service';
 import {MedicalProfessional} from '../../models/medical-professional';
+import {MatDialog} from '@angular/material';
+import {AddPatientDialogComponent} from '../../dialogs/add-patient-dialog/add-patient-dialog.component';
 
 @Component({
   selector: 'app-medical-professional-patient-list',
@@ -27,7 +29,9 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   patientList: PatientDataResponse[];
   user: MedicalProfessional;
 
-  constructor(private apiService: APIService, private authService: AuthService) {
+  constructor(private apiService: APIService,
+              private authService: AuthService,
+              private dialog: MatDialog) {
     this.user = this.authService.loggedInUser;
   }
 
@@ -45,7 +49,9 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   openNewUserModal() {
-
+    this.dialog.open(AddPatientDialogComponent, {
+      width: '50%'
+    });
   }
 }
 
