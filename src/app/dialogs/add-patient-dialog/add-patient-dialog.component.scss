@@ -69,4 +69,9 @@ mat-icon {
     margin-right: 10px;
   }
 }
-
+.big-checkbox {
+  .mat-checkbox-inner-container {
+    height: 24px;
+    width: 24px;
+  }
+}

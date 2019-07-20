@@ -34,7 +34,7 @@
         <td mat-cell *matCellDef="let element">
           <button mat-raised-button color="primary"
           class="add-button"
-          (click)="addPatient(element.id)">
+          (click)="addPatient(element.PatientId)">
             Add Patient
           </button>
         </td>
@@ -50,24 +50,40 @@
     <div class="add-new-container">
       <div class="name">
         <mat-form-field>
-          <input #firstName matInput type="text" placeholder="First Name">
-        </mat-form-field>
+          <input #firstName matInput type="text"
+            placeholder="First Name"
+            [(ngModel)]="firstName">
+          </mat-form-field>
         <mat-form-field>
-          <input #lastName matInput type="text" placeholder="Last Name">
-        </mat-form-field>
+          <input #lastName matInput type="text"
+            placeholder="Last Name">
+          </mat-form-field>
       </div>
       <div class="attributes">
         <mat-form-field>
-          <input #DOB matInput type="date" placeholder="DOB">
-        </mat-form-field>
+          <input #DOB matInput type="date"
+            placeholder="DOB">
+          </mat-form-field>
         <mat-form-field>
-          <input #gender matInput type="text" placeholder="gender">
-        </mat-form-field>
+          <input #gender matInput type="text"
+            placeholder="Gender">
+          </mat-form-field>
+      </div>
+
+      <div class="attributes">
+        <mat-checkbox 
+          class="big-checkbox"
+          [(ngModel)]="checkboxState"
+          >At Risk For Missed Medication
+        </mat-checkbox>
       </div>
 
       <div class="buttons">
-        <button mat-raised-button color="primary" (click)="dialogRef.close()">Cancel</button>
-        <button mat-raised-button color="primary" (click)="submit(firstName.value, lastName.value, DOB.value, gender.value)">Submit
+        <button mat-raised-button color="primary" 
+          (click)="dialogRef.close()">Cancel
+        </button>
+        <button mat-raised-button color="primary" 
+          (click)="submit(firstName.value, lastName.value, DOB.value, gender.value)">Submit
         </button>
       </div>
     </div>

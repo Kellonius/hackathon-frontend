@@ -19,7 +19,9 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   }
 
   getInfo() {
-    this.medicalProfessional = this.mpService.getMedicalProfessionalInformation("joe.doctor@stf.com");
+    this.mpService.getMedicalProfessionalInformation("joe.doctor@stf.com").subscribe(res => {
+      this.medicalProfessional = res;
+    });
   }
 
   getMPAndPatientInfo() {

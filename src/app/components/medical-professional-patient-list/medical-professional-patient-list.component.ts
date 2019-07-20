@@ -7,7 +7,7 @@ import {AuthService} from '../../services/auth/auth.service';
 import {MedicalProfessional} from '../../models/medical-professional';
 import {MatDialog} from '@angular/material';
 import {AddPatientDialogComponent} from '../../dialogs/add-patient-dialog/add-patient-dialog.component';
-import {MatDialogConfig} from '@angular/material';
+import {MatDialogConfig, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-medical-professional-patient-list',
@@ -30,6 +30,11 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   patientList: PatientDataResponse[];
   user: MedicalProfessional;
 
+  
+  addPatientDialogRef: MatDialogRef<AddPatientDialogComponent>;
+
+  mpId: number;
+
   constructor(private apiService: APIService,
               private authService: AuthService,
               private dialog: MatDialog) {
@@ -37,29 +42,38 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(
-      patientList => {this.patientList = patientList;
-                      console.log(this.patientList);
-    });
-  }
+    this.getPatientData();
 
-  setData(value: string): boolean {
-    if (value === 'notification' || value === 'renewal') {
-      return false;
-    }
+    this.setMpId();
   }
 
   openNewUserModal() {
     const config: MatDialogConfig = {
       data: {
-        mpId: this.user.id
+        mpId: this.mpId
       },
       width: '80%',
       minHeight: '500px',
       panelClass: 'custom-dialog-container'
     };
 
-    this.dialog.open(AddPatientDialogComponent, config);
+    this.addPatientDialogRef = this.dialog.open(AddPatientDialogComponent, config);
+    this.addPatientDialogRef.afterClosed().subscribe(result => {
+      this.getPatientData();
+    });
+  }
+
+  setMpId() {
+    this.apiService.getMedicalProfessionalInformation(this.user.email).subscribe(response => {
+      this.mpId = response.MPId;
+    });
+  }
+
+  getPatientData() {
+    this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(
+      patientList => {this.patientList = patientList;
+                      console.log(this.patientList);
+    });
   }
 }
 

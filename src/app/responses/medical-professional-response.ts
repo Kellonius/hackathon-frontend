@@ -1,7 +1,10 @@
 export class MedicalProfessionalResponse{
-    name: string;
+    Address: string;
+    MPId: number
+    Phone: string;
     email: string;
-    phoneNumber: string;
-    address: string;
+    firstName: string;
+    id: number;
+    lastName: string;
   }
   

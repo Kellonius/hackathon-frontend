@@ -8,4 +8,5 @@ export class PatientDataResponse {
   AtRisk: string;
   DOB: Date;
   Scripts: Script[];
+  PatientId: string;
 }

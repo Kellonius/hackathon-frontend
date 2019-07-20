@@ -15,6 +15,12 @@ export class AddPatientDialogComponent implements OnInit {
 
   mpId: number;
 
+  checkboxState = false;
+  firstName = '';
+  lastName = '';
+  dob = '';
+  gender = '';
+
   patientList: PatientDataResponse[] = [];
 
   nonPatientList: PatientDataResponse[] = [];
@@ -36,8 +42,12 @@ export class AddPatientDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  submit(firstName, lastName, DOB, gender) {
-
+  submit(firstName: string, lastName: string, DOB: string, gender: string) {
+    console.log('fN: ' + this.firstName);
+    console.log('lN: ' + lastName);
+    console.log('fN: ' + DOB);
+    console.log('fN: ' + gender);
+    console.log('at risk: ' + this.checkboxState);
   }
 
 getNonPatients() {
@@ -48,7 +58,6 @@ getNonPatients() {
 
 addPatient(patientId: number) {
   this.apiService.addPatientToMP(this.mpId, patientId).subscribe(() => {
-
   });
 }
 
