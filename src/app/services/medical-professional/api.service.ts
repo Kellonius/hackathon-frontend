@@ -4,6 +4,7 @@ import { MedicalProfessionalResponse } from 'src/app/responses/medical-professio
 import { Observable } from 'rxjs';
 import {MedicalProfessional} from '../../models/medical-professional';
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
+import { PatientCreationRequest } from 'src/app/requests/patient-creation-request';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,9 @@ export class APIService {
 
   addPatientToMP(mpId: number, patientId: number) {
     return this.httpWrapper.post({}, 'MedicalProfessionals/AssignPatientToMp?medicalProfessionalId=' + mpId + '&patientId=' + patientId);
+  }
+
+  createPatient(request: PatientCreationRequest) {
+    return this.httpWrapper.post(request, 'MedicalProfessionals/CreatePatientAndTieToMP');
   }
 }
