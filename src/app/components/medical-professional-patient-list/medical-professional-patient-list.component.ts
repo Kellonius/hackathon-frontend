@@ -19,7 +19,7 @@ import { Script } from 'src/app/models/script';
 export class MedicalProfessionalPatientListComponent implements OnInit {
   columns = ['Name', 'DOB', 'Gender', 'Risk'];
 
-  columns2 = ['Drug Name', 'Dose', 'Frequency', 'Issue Date', 'Filled', 'Picked Up'];
+  columns2 = ['Generic Drug Name', 'Medical Drug Name', 'Dose', 'Frequency', 'Issue Date', 'Filled', 'Picked Up'];
 
   expandedElement: Script | null;  
   patientList: PatientDataResponse[];

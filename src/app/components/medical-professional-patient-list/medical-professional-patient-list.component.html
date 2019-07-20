@@ -92,9 +92,14 @@
         <div class="example-element-diagram"> 
 
           <table class="medList" mat-table [dataSource]="element.Scripts">
-            <ng-container matColumnDef="Drug Name">
-              <th mat-header-cell *matHeaderCellDef> Drug Name </th>
-              <td mat-cell *matCellDef="let script">{{script.MedicationId}}</td>
+            <ng-container matColumnDef="Generic Drug Name">
+              <th mat-header-cell *matHeaderCellDef> Generic Drug Name </th>
+              <td mat-cell *matCellDef="let script">{{script.MedicationGenericName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Medical Drug Name">
+              <th mat-header-cell *matHeaderCellDef> Medical Drug Name </th>
+              <td mat-cell *matCellDef="let script">{{script.MedicationMedicalName}}</td>
             </ng-container>
           
             <ng-container matColumnDef="Dose">

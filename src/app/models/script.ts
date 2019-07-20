@@ -1,5 +1,7 @@
 export class Script {
   medicationId: string;
+  medicationGenericName: string;
+  medicationMedicalName: string;
   medicationRoute: string;
   dosage: string;
   medicationTime: string;
