@@ -5,6 +5,8 @@ import { MedicalProfessionalDetailPageComponent } from './components/medical-pro
 import { MedicalProfessionalPatientListComponent } from './components/medical-professional-patient-list/medical-professional-patient-list.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthGuardGuard} from './guards/auth-guard.guard';
+import {IncomingPrescriptionsComponent} from './components/pharmacy/incoming/incoming-prescriptions.component';
+import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/outgoing-prescriptions.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,16 @@ const routes: Routes = [
   //   path: 'pharmacy/:id',
   //   component: PatientDetailPageComponent
   // }
+  {
+    path: 'pharmacy/incoming',
+    component: IncomingPrescriptionsComponent,
+    canActivate: [AuthGuardGuard]
+  },
+  {
+    path: 'pharmacy/outgoing',
+    component: OutgoingPrescriptionsComponent,
+    canActivate: [AuthGuardGuard]
+  },
   {
     path: 'medical-professional/:id',
     component: MedicalProfessionalDetailPageComponent,

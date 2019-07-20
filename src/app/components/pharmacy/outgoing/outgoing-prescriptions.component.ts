@@ -3,13 +3,13 @@ import {PharmacyService} from '../../../services/pharmacy/pharmacy.service';
 import {PatientScript} from '../../../models/patient-script';
 
 @Component({
-  selector: 'app-incoming-prescriptions',
+  selector: 'app-outgoing-prescriptions',
   template: `
-    <div class="incoming-prescriptions">
+    <div class="outgoing-prescriptions">
       <div *ngFor="let script of patientScripts; let index = index">
         <mat-card class="mat-elevation-z2 prescription-card"
-                  (click)="toggleFilled(script)"
-                  [ngClass]="{'filled': isFilled(script)}">
+                  (click)="togglePickedUp(script)"
+                  [ngClass]="{'picked-up': isPickedUp(script)}">
           <div class="prescription-info-container">
             <div class="prescription-name">
               {{script.MedicationMedicalName + ' (' + script.MedicationGenericName + ')'}}
@@ -22,54 +22,54 @@ import {PatientScript} from '../../../models/patient-script';
           <div class="prescription-by">
             Prescribed by {{script.PrescribedBy}}
           </div>
-          <div *ngIf="isFilled(script)" class="prescription-filled">
+          <div *ngIf="isPickedUp(script)" class="prescription-picked-up">
             <mat-icon>check_circle_outline</mat-icon>
           </div>
         </mat-card>
       </div>
-      <div class="fill-prescriptions-section">
-        <button class="fill-prescriptions-button"
+      <div class="picked-up-prescriptions-section">
+        <button class="picked-up-prescriptions-button"
                 mat-raised-button color="primary"
-                (click)="fillPrescriptions()">
-          Fill Prescriptions
+                (click)="pickUpPrescriptions()">
+          Pick Up Prescriptions
         </button>
       </div>
     </div>
   `,
-  styleUrls: ['./incoming-prescriptions.component.scss']
+  styleUrls: ['./outgoing-prescriptions.component.scss']
 })
-export class IncomingPrescriptionsComponent implements OnInit {
+export class OutgoingPrescriptionsComponent implements OnInit {
   patientScripts: PatientScript[] = [];
-  filledScripts: PatientScript[] = [];
+  pickedUpScripts: PatientScript[] = [];
 
   constructor(private pharmacyService: PharmacyService) {
   }
 
   ngOnInit() {
-    this.pharmacyService.getIncomingPrescriptions().subscribe(scripts => {
+    this.pharmacyService.getOutgoingPrescriptions().subscribe(scripts => {
       this.patientScripts = scripts;
     });
   }
 
-  fillPrescriptions() {
-    this.pharmacyService.fillPrescriptions(this.filledScripts.map(f => f.ScriptId))
+  pickUpPrescriptions() {
+    this.pharmacyService.pickUpPrescriptions(this.pickedUpScripts.map(f => f.ScriptId))
       .subscribe(f => {
-        this.pharmacyService.getIncomingPrescriptions().subscribe(scripts => {
+        this.pharmacyService.getOutgoingPrescriptions().subscribe(scripts => {
           this.patientScripts = scripts;
-          this.filledScripts = [];
+          this.pickedUpScripts = [];
         });
       });
   }
 
-  isFilled(script: PatientScript): boolean {
-    return !!this.filledScripts.find(f => f === script);
+  isPickedUp(script: PatientScript): boolean {
+    return !!this.pickedUpScripts.find(f => f === script);
   }
 
-  toggleFilled(script: PatientScript) {
-    if (this.filledScripts.find(f => f === script)) {
-      this.filledScripts = this.filledScripts.filter(f => f !== script);
+  togglePickedUp(script: PatientScript) {
+    if (this.pickedUpScripts.find(f => f === script)) {
+      this.pickedUpScripts = this.pickedUpScripts.filter(f => f !== script);
     } else {
-      this.filledScripts.push(script);
+      this.pickedUpScripts.push(script);
     }
   }
 }
