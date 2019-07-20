@@ -7,6 +7,7 @@ import {AuthService} from '../../services/auth/auth.service';
 import {MedicalProfessional} from '../../models/medical-professional';
 import {MatDialog} from '@angular/material';
 import {AddPatientDialogComponent} from '../../dialogs/add-patient-dialog/add-patient-dialog.component';
+import {MatDialogConfig} from '@angular/material';
 
 @Component({
   selector: 'app-medical-professional-patient-list',
@@ -49,11 +50,16 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   openNewUserModal() {
-    this.dialog.open(AddPatientDialogComponent, {
+    const config: MatDialogConfig = {
+      data: {
+        mpId: this.user.id
+      },
       width: '80%',
       minHeight: '500px',
       panelClass: 'custom-dialog-container'
-    });
+    };
+
+    this.dialog.open(AddPatientDialogComponent, config);
   }
 }
 
