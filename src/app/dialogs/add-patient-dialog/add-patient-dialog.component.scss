@@ -43,6 +43,7 @@ mat-icon {
 }
 
 .add-new-container {
+  padding-top: 32px;
   flex-direction: column;
   display: flex;
 }
@@ -60,6 +61,8 @@ mat-icon {
 .buttons {
   margin: 10px 0 10px 0;
   float: right;
+  justify-content: center;
+  display: flex;
 
   button {
     float: right;
