@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'medical-professional/:id',
     component: MedicalProfessionalDetailPageComponent
   },
+  {
+    path: '',
+    redirectTo: '/medical-professional-patient-list',
+    pathMatch: 'full'
+  },
   // {
   //   path: 'patient-search',
   //   component: PatientDetailPageComponent
