@@ -13,15 +13,20 @@ import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 export class AddPatientDialogComponent implements OnInit {
   searchTerm = '';
 
+  mpId: number;
+
   patientList: PatientDataResponse[] = [];
 
   nonPatientList: PatientDataResponse[] = [];
 
-  columns = ['Name', 'DOB', 'Gender'];
+  columns = ['Name', 'DOB', 'Gender', 'Add'];
 
   constructor(public dialogRef: MatDialogRef<AddPatientDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data,
-              private apiService: APIService) { }
+              private apiService: APIService) { 
+    this.mpId = this.data.mpId;
+    console.log('mpID: ' + this.mpId)
+  }
 
   ngOnInit() {
     this.getNonPatients();
@@ -38,6 +43,12 @@ export class AddPatientDialogComponent implements OnInit {
 getNonPatients() {
   this.apiService.getNonpatientsForMP().subscribe(patientList => {
     this.nonPatientList = patientList;
+  });
+}
+
+addPatient(patientId: number) {
+  this.apiService.addPatientToMP(this.mpId, patientId).subscribe(() => {
+
   });
 }
 

@@ -39,4 +39,8 @@ export class APIService {
   getNonpatientsForMP(): Observable<PatientDataResponse[]>  {
     return this.httpWrapper.get('MedicalProfessionals/GetExistingNewPatientsForMP?userEmail=joe.doctor@stf.com');
   }
+
+  addPatientToMP(mpId: number, patientId: number) {
+    return this.httpWrapper.post({}, 'MedicalProfessionals/AssignPatientToMp?medicalProfessionalId=' + mpId + '&patientId=' + patientId);
+  }
 }
