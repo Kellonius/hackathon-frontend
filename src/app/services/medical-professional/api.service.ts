@@ -28,6 +28,10 @@ export class APIService {
     return this.httpWrapper.get<PatientDataResponse[]>('MedicalProfessionals/GetPatientsForMP?userEmail=joe.doctor@stf.com');
   }
 
+  getMP() {
+    return this.httpWrapper.get('MedicalProfessionals/GetPatientsForMP?userEmail=joe.doctor@stf.com');
+  }
+
   updateDetails(mp: MedicalProfessionalResponse) {
     this.httpWrapper.put(mp, '/medical-professional/');
   }
