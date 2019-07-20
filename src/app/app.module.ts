@@ -19,7 +19,8 @@ import {
     } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientWrapperService } from './services/http-wrapper.service';
-import { HttpClientModule } from '@angular/common/http';
+import {PatientDetailService} from './services/patient-detail/patient-detail.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatTooltipModule
   ],
-  providers: [HttpClientWrapperService],
+  providers: [
+    HttpClientWrapperService,
+    PatientDetailService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
