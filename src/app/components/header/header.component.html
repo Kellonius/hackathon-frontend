@@ -4,7 +4,7 @@
   <mat-menu #menu="matMenu" xPosition="before">
     <button class="menu-item" mat-menu-item routerLink="/medical-professional/1">Edit Details</button>
     <button class="menu-item" mat-menu-item routerLink="/">Another Test Link</button>
-    <button class="menu-item" mat-menu-item routerLink="/signout">Sign Out</button>
+    <button class="menu-item" mat-menu-item (click)="signOut()">Sign Out</button>
   </mat-menu>
 </div>
 <div class="divider"></div>
