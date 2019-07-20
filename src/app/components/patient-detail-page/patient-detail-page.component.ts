@@ -28,8 +28,8 @@ export class PatientDetailPageComponent implements OnInit {
     this.patient.id = 1;
     this.patient.firstName = 'First';
     this.patient.lastName = 'Last';
-    this.patient.medications = [med, med];
-    this.datasource.data = this.patient.medications;
+    this.patient.Scripts = [med, med];
+    this.datasource.data = this.patient.Scripts;
   }
 
 }

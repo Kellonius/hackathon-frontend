@@ -39,10 +39,6 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 }
 
-
-<<<<<<< HEAD
-
-
   // patientList = [
   //   {
   //     Name: 'Bob Ross',
@@ -85,22 +81,3 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   //     ]
   //   }
   // ];
-||||||| merged common ancestors
-export interface Script {
-  drugName: string;
-  dose: number;
-  frequency: number;
-  issueDate: string;
-  filled: boolean;
-  pickedUp: boolean;
-}
-=======
-export interface Script {
-  drugName: string;
-  dose: number;
-  frequency: number;
-  issueDate: string;
-  filled: boolean;
-  pickedUp: boolean;
-}
->>>>>>> 82ea469393add9104fab8f3e5249844f25bd0885
