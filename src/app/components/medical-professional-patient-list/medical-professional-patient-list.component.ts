@@ -43,6 +43,10 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
       return false;
     }
   }
+
+  openNewUserModal() {
+
+  }
 }
 
   // patientList = [

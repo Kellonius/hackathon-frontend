@@ -59,10 +59,15 @@
       <tr mat-header-row *matHeaderRowDef="columns"></tr>
       <tr mat-row *matRowDef="let row; columns: columns"></tr>
     </table> -->
-<div class="mpName">
-  {{user.fullName()}}
-</div>
 
+ <div class="top-wrapper">
+   <div class="mpName">
+     {{user.fullName()}}
+   </div>
+ </div>
+
+
+ <button mat-raised-button color="primary" (click)="openNewUserModal()">Add a Patient</button>
 
 <table mat-table
     [dataSource]="patientList" multiTemplateDataRows
