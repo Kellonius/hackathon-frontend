@@ -3,4 +3,5 @@ export class Medication {
   route: string;
   dose: string;
   frequency: string;
+  date: Date;
 }
