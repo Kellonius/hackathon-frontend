@@ -19,7 +19,7 @@ import {
     } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientWrapperService } from './services/http-wrapper.service';
-import {PatientDetailService} from './services/patient-detail/patient-detail.service';
+import {PatientDataService} from './services/patient-data/patient-data.service';
 import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { MedicalProfessionalPatientListComponent } from './components/medical-professional-patient-list/medical-professional-patient-list.component';
@@ -72,7 +72,7 @@ import { MedicalProfessionalPatientListComponent } from './components/medical-pr
   ],
   providers: [
     HttpClientWrapperService,
-    PatientDetailService
+    PatientDataService
   ],
   bootstrap: [AppComponent]
 })

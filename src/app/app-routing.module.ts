@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {PatientDetailPageComponent} from './components/patient-detail-page/patient-detail-page.component';
-import { AppComponent } from './app.component';
 import { MedicalProfessionalDetailPageComponent } from './components/medical-professional-detail-page/medical-professional-detail-page.component';
 import { MedicalProfessionalPatientListComponent } from './components/medical-professional-patient-list/medical-professional-patient-list.component';
 

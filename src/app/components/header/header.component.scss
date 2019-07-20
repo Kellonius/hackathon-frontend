@@ -8,3 +8,35 @@ img {
   margin: 0;
   padding: 0;
 }
+
+button {
+  float: right;
+  height: 74px;
+  width: 74px;
+  padding: 0;
+  margin: 0 10px 0 0;
+  align-items: center;
+  text-align: center;
+}
+
+mat-icon {
+  color: #b216a6;
+  font-size: 60px;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  padding: 10px 0 0 0;
+}
+
+.menu-item {
+  width: 100%;
+  min-width: 300px;
+  padding: 0;
+  margin: 0;
+  color: #b216a6;
+  font-size: large;
+  font-weight: bold;
+  font-family: "Segoe UI";
+}

@@ -1,2 +1,9 @@
-<img src="../../../assets/full_icon.png" alt="" routerLink="/">
+<div class="container">
+  <img src="../../../assets/full_icon.png" alt="" routerLink="/">
+  <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button class="menu-item" mat-menu-item routerLink="/patient/1">Test Link</button>
+    <button class="menu-item" mat-menu-item routerLink="/edit">Another Test Link</button>
+  </mat-menu>
+</div>
 <div class="divider"></div>
