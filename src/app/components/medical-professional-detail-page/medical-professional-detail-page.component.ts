@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicalProfessionalService } from '../../services/medical-professional/medical-professional.service';
+import { APIService } from '../../services/medical-professional/api.service';
 import { MedicalProfessionalResponse } from 'src/app/responses/medical-professional-response';
 import {FormControl, FormGroup} from '@angular/forms';
 
@@ -12,7 +12,7 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   medicalProfessional: MedicalProfessionalResponse;
   formGroup: FormGroup;
 
-  constructor(private mpService: MedicalProfessionalService) { }
+  constructor(private mpService: APIService) { }
 
   ngOnInit() {
     this.getInfo();
@@ -20,5 +20,9 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
 
   getInfo() {
     this.medicalProfessional = this.mpService.getMedicalProfessionalInformation(1);
+  }
+
+  getMPAndPatientInfo() {
+    
   }
 }

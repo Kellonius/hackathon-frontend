@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MedicalProfessionalService {
+export class APIService {
 
   constructor(private httpWrapper: HttpClientWrapperService) { }
 
