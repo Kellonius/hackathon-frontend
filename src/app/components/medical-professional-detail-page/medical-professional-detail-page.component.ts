@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from '../../services/medical-professional/api.service';
+import { MedicalProfessionalService } from '../../services/medical-professional/medical-professional.service';
 import { MedicalProfessionalResponse } from 'src/app/responses/medical-professional-response';
 import {FormControl, FormGroup} from '@angular/forms';
+import {APIService} from '../../services/medical-professional/api.service';
 
 @Component({
   selector: 'app-medical-professional-detail-page',
@@ -23,6 +24,10 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   }
 
   getMPAndPatientInfo() {
-    
+
+  }
+
+  updateDetails() {
+    this.mpService.updateDetails(this.medicalProfessional);
   }
 }

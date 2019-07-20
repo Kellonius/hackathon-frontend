@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientWrapperService } from '../http-wrapper.service';
 import { MedicalProfessionalResponse } from 'src/app/responses/medical-professional-response';
 import { Observable } from 'rxjs';
+import {MedicalProfessional} from '../../models/medical-professional';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class APIService {
       address: '123 Easy Street'
       };
     // return this.httpWrapper.get('/medical-professional/' + id);
+  }
+
+  updateDetails(mp: MedicalProfessionalResponse) {
+    this.httpWrapper.put(mp, '/medical-professional/');
   }
 }
