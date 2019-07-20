@@ -21,8 +21,4 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   getInfo() {
     this.medicalProfessional = this.mpService.getMedicalProfessionalInformation(1);
   }
-
-  updateInfo() {
-    
-  }
 }
