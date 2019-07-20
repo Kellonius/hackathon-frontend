@@ -1,4 +1,4 @@
-.incoming-prescriptions {
+.outgoing-prescriptions {
   padding-top: 48px;
 }
 
@@ -17,17 +17,17 @@
   }
 }
 
-.fill-prescriptions-section {
+.picked-up-prescriptions-section {
   padding-top: 32px;
   text-align: center;
 
-  .fill-prescriptions-button {
+  .picked-up-prescriptions-button {
     width: 128px;
     height: 64px;
   }
 }
 
-.filled {
+.picked-up {
   background-color: #B216A6;
   color: white;
 }
@@ -41,7 +41,7 @@
   padding: 2px;
 }
 
-.prescription-filled {
+.prescription-picked-up {
   position: absolute;
   right: 32px;
   top: 50%;
