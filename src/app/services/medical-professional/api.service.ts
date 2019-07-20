@@ -35,4 +35,8 @@ export class APIService {
   updateDetails(mp: MedicalProfessionalResponse) {
     this.httpWrapper.put(mp, '/medical-professional/');
   }
+
+  getNonpatientsForMP(): Observable<PatientDataResponse[]>  {
+    return this.httpWrapper.get('MedicalProfessionals/GetExistingNewPatientsForMP?userEmail=joe.doctor@stf.com');
+  }
 }
