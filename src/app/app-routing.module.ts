@@ -3,16 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import {PatientDetailPageComponent} from './components/patient-detail-page/patient-detail-page.component';
 import { AppComponent } from './app.component';
 import { MedicalProfessionalDetailPageComponent } from './components/medical-professional-detail-page/medical-professional-detail-page.component';
+import { MedicalProfessionalPatientListComponent } from './components/medical-professional-patient-list/medical-professional-patient-list.component';
 
 const routes: Routes = [
   {
     path: 'patient/:id',
     component: PatientDetailPageComponent
   },
-  // {
-  //   path: 'home',
-  //   component: AppComponent
-  // },
+  {
+    path: 'medical-professional-patient-list',
+    component: MedicalProfessionalPatientListComponent
+  },
    // {
   //   path: 'pharmacy/:id',
   //   component: PatientDetailPageComponent

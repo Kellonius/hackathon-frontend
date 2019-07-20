@@ -22,13 +22,15 @@ import { HttpClientWrapperService } from './services/http-wrapper.service';
 import {PatientDetailService} from './services/patient-detail/patient-detail.service';
 import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
+import { MedicalProfessionalPatientListComponent } from './components/medical-professional-patient-list/medical-professional-patient-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientDetailPageComponent,
     MedicalProfessionalDetailPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    MedicalProfessionalPatientListComponent
   ],
   imports: [
     AppRoutingModule,
