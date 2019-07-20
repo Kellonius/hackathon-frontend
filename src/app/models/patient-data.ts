@@ -1,6 +1,6 @@
 import {Medication} from './medication';
 
-export class PatientDetail {
+export class PatientData {
   id: number;
   firstName: string;
   lastName: string;
