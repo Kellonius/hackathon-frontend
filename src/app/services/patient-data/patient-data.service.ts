@@ -13,4 +13,8 @@ export class PatientDataService {
   getPatientDetailInformation(id: number): Observable<PatientDataResponse> {
     return this.httpWrapper.get('/patient-detail/' + id);
   }
+
+  searchPatients(terms: string): Observable<PatientDataResponse[]> {
+    return this.httpWrapper.get<PatientDataResponse[]>('Patient/SearchPatients?terms=' + terms);
+  }
 }

@@ -51,6 +51,7 @@ import {AuthService} from './services/auth/auth.service';
 import { AddPatientDialogComponent } from './dialogs/add-patient-dialog/add-patient-dialog.component';
 import {IncomingPrescriptionsComponent} from './components/pharmacy/incoming/incoming-prescriptions.component';
 import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/outgoing-prescriptions.component';
+import {PatientSearchComponent} from './components/patient/patient-search.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/out
     AddPatientDialogComponent,
     IncomingPrescriptionsComponent,
     OutgoingPrescriptionsComponent,
+    PatientSearchComponent,
   ],
   imports: [
     AppRoutingModule,
