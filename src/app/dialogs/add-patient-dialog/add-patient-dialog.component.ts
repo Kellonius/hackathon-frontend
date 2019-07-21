@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import { APIService } from 'src/app/services/medical-professional/api.service';
+import { MedicalProfessionalService } from 'src/app/services/medical-professional/api.service';
 
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { PatientCreationRequest } from 'src/app/requests/patient-creation-request';
@@ -15,6 +15,7 @@ export class AddPatientDialogComponent implements OnInit {
   searchTerm = '';
 
   mpId: number;
+  mpEmail: string;
 
   atRisk = false;
   firstName = '';
@@ -32,9 +33,9 @@ export class AddPatientDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddPatientDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data,
-              private apiService: APIService) {
+              private mpService: MedicalProfessionalService) {
     this.mpId = this.data.mpId;
-    console.log('mpID: ' + this.mpId);
+    this.mpEmail = this.data.email;
   }
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class AddPatientDialogComponent implements OnInit {
       AtRisk: this.atRisk
     };
 
-    this.apiService.createPatient(request).subscribe(() => {
+    this.mpService.createPatientTiedToMP(request).subscribe(() => {
       this.atRisk = false;
       this.firstName = '';
       this.lastName = '';
@@ -70,13 +71,13 @@ export class AddPatientDialogComponent implements OnInit {
   }
 
 getNonPatients() {
-  this.apiService.getNonpatientsForMP().subscribe(response => {
+  this.mpService.getNonpatientsForMP(this.mpEmail).subscribe(response => {
     this.nonPatientList = response;
   });
 }
 
 addPatient(patientId: number) {
-  this.apiService.addPatientToMP(this.mpId, patientId).subscribe(() => {
+  this.mpService.addPatientToMP(this.mpId, patientId).subscribe(() => {
   });
 }
 
@@ -101,5 +102,4 @@ clearSearch() {
   this.searchTerm = '';
   this.patientList = [];
 }
-
 }

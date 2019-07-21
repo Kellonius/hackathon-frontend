@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MedicalProfessionalResponse} from 'src/app/responses/medical-professional-response';
 import {FormGroup} from '@angular/forms';
-import {APIService} from '../../services/medical-professional/api.service';
+import {MedicalProfessionalService} from '../../services/medical-professional/api.service';
 import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   email: string;
   formGroup: FormGroup;
 
-  constructor(private mpService: APIService, private authService: AuthService) {
+  constructor(private mpService: MedicalProfessionalService, private authService: AuthService) {
     this.email = this.authService.loggedInUser.email;
   }
 
@@ -23,14 +23,10 @@ export class MedicalProfessionalDetailPageComponent implements OnInit {
   }
 
   getInfo() {
-    this.mpService.getMedicalProfessionalInformation(this.email).subscribe(data => {
+    this.mpService.getMPInformation(this.email).subscribe(data => {
 
       this.medicalProfessional = data;
     });
-  }
-
-  getMPAndPatientInfo() {
-
   }
 
   updateDetails() {
