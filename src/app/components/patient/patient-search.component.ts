@@ -49,7 +49,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./patient-search.component.scss']
 })
 export class PatientSearchComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'dob', 'Email', 'gender'];
+  displayedColumns: string[] = ['name', 'dob', 'email', 'gender'];
   patients: PatientDataResponse[] = [];
 
   constructor(
