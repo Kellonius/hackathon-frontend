@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit {
   link: boolean;
 
   constructor(private auth: AuthService,
@@ -20,10 +20,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   signOut() {
     this.auth.loggedInUser = undefined;
     this.router.navigate(['/login']).then();
-  }
-
-  ngOnChanges(): void {
-    this.link = window.location.href.includes('epic');
   }
 
 }
