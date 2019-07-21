@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   template: `
     <div class="patient-search">
       <form (submit)="search(searchField.value)">
-        <mat-form-field>
+        <mat-form-field class="patient-search-bar">
           <input matInput placeholder="Search for patients" #searchField>
         </mat-form-field>
         <button mat-icon-button>
@@ -68,6 +68,6 @@ export class PatientSearchComponent implements OnInit {
   }
 
   clickRow(patient: PatientDataResponse) {
-    this.router.navigateByUrl('patient/' + patient.id);
+    this.router.navigateByUrl('patient/' + patient.PatientId);
   }
 }

@@ -63,18 +63,12 @@ export class PatientDetailPageComponent implements OnInit {
       this.patientId = +params.get('id');
     });
 
-    forkJoin(
-      this.patientDetailService.getPatientDetailInformation(this.patientId),
-      this.patientDetailService.getPatientMedications(this.patientId)
-    ).subscribe(res => {
-      this.patient = res[0];
-      this.patientMedications = res[1];
-      console.log(this.patient);
-      console.log(this.patientMedications);
-
-      this.datasource.data = this.patient.Scripts;
-    })
-
+    this.patientDetailService.getPatientDetailInformation(this.patientId)
+      .subscribe(patient => {
+        this.patient = patient;
+        this.datasource.data = this.patient.Scripts;
+      });
+    this.patientDetailService.getPatientMedications(this.patientId)
+      .subscribe(meds => this.patientMedications = meds);
   }
-
 }

@@ -54,6 +54,10 @@ import {PatientSearchComponent} from './components/patient/patient-search.compon
 import {LoadingComponent} from './components/loading/loading.component';
 import {LoadingService} from './services/loading.service';
 import {LoadingInterceptor} from './shared/interceptors/loading.interceptor';
+import {AuthorizationInterceptor} from './shared/interceptors/authorization.interceptor';
+import {ErrorHandlerInterceptor} from './shared/interceptors/error-handler.interceptor';
+import { EpicIshComponent } from './components/epic-ish/epic-ish.component';
+import { MedDialogComponent } from './dialogs/med-dialog/med-dialog.component';
 
 
 @NgModule({
@@ -67,6 +71,8 @@ import {LoadingInterceptor} from './shared/interceptors/loading.interceptor';
     AddPatientDialogComponent,
     IncomingPrescriptionsComponent,
     OutgoingPrescriptionsComponent,
+    EpicIshComponent,
+    MedDialogComponent,
     PatientSearchComponent,
     LoadingComponent,
   ],
@@ -113,10 +119,12 @@ import {LoadingInterceptor} from './shared/interceptors/loading.interceptor';
     PatientDataService,
     AuthService,
     LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddPatientDialogComponent]
+  entryComponents: [AddPatientDialogComponent, MedDialogComponent]
 })
 export class AppModule {
 }

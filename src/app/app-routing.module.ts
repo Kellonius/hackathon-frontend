@@ -7,6 +7,7 @@ import {LoginComponent} from './components/login/login.component';
 import {AuthGuardGuard} from './guards/auth-guard.guard';
 import {IncomingPrescriptionsComponent} from './components/pharmacy/incoming/incoming-prescriptions.component';
 import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/outgoing-prescriptions.component';
+import {EpicIshComponent} from './components/epic-ish/epic-ish.component';
 import {PatientSearchComponent} from './components/patient/patient-search.component';
 
 const routes: Routes = [
@@ -58,6 +59,16 @@ const routes: Routes = [
     component: PatientDetailPageComponent,
     canActivate: [AuthGuardGuard]
   },
+  {
+    path: 'epic-ish',
+    component: EpicIshComponent
+  },
+
+  // {
+  //   path: 'patient-search',
+  //   component: PatientDetailPageComponent
+  // },
+
 ];
 
 @NgModule({

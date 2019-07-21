@@ -22,4 +22,12 @@ export class PatientDataService {
   searchPatients(terms: string): Observable<PatientDataResponse[]> {
     return this.httpWrapper.get<PatientDataResponse[]>('Patient/SearchPatients?terms=' + terms);
   }
+
+  searchForPatientDetails(term): Observable<PatientDataResponse[]> {
+    return this.httpWrapper.get('Patient/SearchPatients?terms=' + term);
+  }
+
+  getPatientMeds(row) {
+
+  }
 }

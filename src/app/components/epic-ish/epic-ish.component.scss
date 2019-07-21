@@ -1,0 +1,17 @@
+.search {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+
+  mat-form-field {
+    width: 600px;
+  }
+}
+
+.medList {
+  width: 100%;
+}
+
+tr {
+  cursor: pointer;
+}
