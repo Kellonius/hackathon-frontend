@@ -28,8 +28,8 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
 
   expandedElement: Script | null;
 
-  patientList: PatientDataResponse[];
-  originalPatientList: PatientDataResponse[];
+  patientList: PatientDataResponse[] = [];
+  originalPatientList: PatientDataResponse[] = [];
 
   user: MedicalProfessional;
 

@@ -10,7 +10,7 @@ import { YearlyReport } from 'src/app/models/yearly-reports';
 })
 export class MedicalReportsComponent implements OnInit {
 
-  reports: YearlyReport[];
+  reports: YearlyReport[] = [];
 
   columns = ['Month', 'PickedUpPrescriptions', 'UnPickedUpPrescriptions', 'PickUpRate'];
 
