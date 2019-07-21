@@ -1,17 +1,16 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ChartDataSets, ChartOptions} from 'chart.js';
-import {Color, BaseChartDirective, Label} from 'ng2-charts';
 import * as pluginAnnotations from 'chart.js';
+import {ChartDataSets, ChartOptions} from 'chart.js';
+import {BaseChartDirective, Color, Label} from 'ng2-charts';
 import {MedicalReportsService} from '../../../services/medical-reports/medical-reports.service';
-import {MonthlyReport} from '../../../models/monthly-report';
 
 @Component({
   selector: 'app-line-chart',
   template: `
     <div class="">
       <div class="chart-container">
-        <div class="chart" *ngIf="reportData.length > 0">
-          <div style="display: block;">
+        <div class="chart">
+          <div style="display: block;" *ngIf="reportData.length > 0">
             <canvas baseChart width="400" height="400"
                     [datasets]="lineChartData"
                     [labels]="lineChartLabels"
@@ -35,6 +34,7 @@ import {MonthlyReport} from '../../../models/monthly-report';
           </div>
           <button mat-button mat-raised-button color="primary" (click)="byMonth()">By Month</button>
           <button mat-button mat-raised-button color="primary" (click)="byYear()">By Year</button>
+          <button mat-button mat-raised-button color="primary" (click)="timeToPickUp()">Time To Pick Up</button>
         </div>
       </div>
     </div>
@@ -53,6 +53,9 @@ export class ReportsChartComponent implements OnInit {
         {
           id: 'y-axis-0',
           position: 'left',
+          ticks: {
+            min: 0
+          }
         }
       ]
     },
@@ -115,43 +118,11 @@ export class ReportsChartComponent implements OnInit {
     this.byMonth();
   }
 
-  public randomize(): void {
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        this.lineChartData[i].data[j] = this.generateNumber(i);
-      }
-    }
-    this.chart.update();
-  }
-
-  private generateNumber(i: number) {
-    return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
-  }
-
   // events
   public chartClicked({event, active}: { event: MouseEvent, active: {}[] }): void {
   }
 
   public chartHovered({event, active}: { event: MouseEvent, active: {}[] }): void {
-  }
-
-  public hideOne() {
-    const isHidden = this.chart.isDatasetHidden(1);
-    this.chart.hideDataset(1, !isHidden);
-  }
-
-  public pushOne() {
-    this.lineChartData.forEach((x, i) => {
-      const num = this.generateNumber(i);
-      const data: number[] = x.data as number[];
-      data.push(num);
-    });
-    this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
-  }
-
-  public changeColor() {
-    this.lineChartColors[2].borderColor = 'green';
-    this.lineChartColors[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
   }
 
   byMonth() {
@@ -192,8 +163,20 @@ export class ReportsChartComponent implements OnInit {
       });
   }
 
-  public changeLabel() {
-    this.lineChartLabels[2] = ['1st Line', '2nd Line'];
-    // this.chart.update();
+  timeToPickUp() {
+    this.medicalReportsService.getTimingData()
+      .subscribe(data => {
+        this.reportData = data;
+
+        const timeToPickUp = data.map(m => m.Occurrences);
+
+        this.lineChartData = [
+          {data: timeToPickUp, label: 'Time to Pick Up (Days)'}
+        ];
+
+        const labels = data.map(m => m.Display === 'Never' ? 'Never' : m.Display + ' Days');
+
+        this.lineChartLabels = labels;
+      });
   }
 }
