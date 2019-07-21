@@ -3,4 +3,38 @@
     font-size: 48px;
     padding-left: 16px;
     padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.report-table {
+    width: 100%;
+}
+
+.percentage {
+    padding-left: 32px;
+}
+
+.header-text {
+    font-size: 22px;
+}
+
+.header-container {
+    height: 210px;
+    width: 100%;
+    background-color: #7116b2;
+    margin-bottom: 10px;
+}
+
+.current-percentage {
+    font-size: 36px;
+    padding-top: 24px;
+    padding-left: 64px;
+    color: white;
+}
+
+.banner-text {
+    font-size: 22px;
+    padding-top: 16px;
+    padding-left: 64px;
+    color: white;
 }
