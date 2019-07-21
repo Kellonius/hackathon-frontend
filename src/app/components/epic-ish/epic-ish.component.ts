@@ -29,7 +29,6 @@ export class EpicIshComponent implements OnInit {
   }
 
   openMedInfo(row) {
-    console.log(row);
     this.router.navigate(['epic-ish-meds', row.PatientId]).then();
   }
 

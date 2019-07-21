@@ -17,9 +17,7 @@ export class EpicMedsComponent implements OnInit {
 
   constructor(private patientService: PatientDataService, private route: ActivatedRoute, private auth: AuthService, private router: Router) {
     this.route.params.subscribe(data => {
-      console.log(data);
       this.patientService.getPatientDetailInformation(data.id).subscribe(patientData => {
-        console.log(patientData);
         this.meds = new MatTableDataSource(patientData.Scripts);
       });
     });
