@@ -14,20 +14,14 @@ export class AuthService {
   constructor(private httpWrapper: HttpClientWrapperService) {
 
     // leave uncommented to fake a user so you don't have to login each refresh
-   this.fakeLogin();
+    if(localStorage.getItem("auth") != null){
+      let auth = JSON.parse(localStorage.getItem("auth"));
+      this.loggedInUser = auth;
+    }
   }
 
   login(details): Observable<any> {
     return this.httpWrapper.post(details, 'Users/LoginUser');
   }
 
-
-  fakeLogin() {
-    const user = new MedicalProfessional();
-    user.id = 54;
-    user.email = 'joe.doctor@stf.com';
-    user.firstName = 'Joe';
-    user.lastName = 'Doctor';
-    this.loggedInUser = user;
-  }
 }
