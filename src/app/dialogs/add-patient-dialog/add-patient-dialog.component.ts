@@ -101,7 +101,7 @@ searchNonPatients() {
           nonPatient.firstName + ' ' + nonPatient.lastName == this.searchTerm ||
           nonPatient.Gender == this.searchTerm          
         ) {
-        tempList = tempList.concat(nonPatient);
+          tempList = tempList.concat(nonPatient);
       }
   });
 

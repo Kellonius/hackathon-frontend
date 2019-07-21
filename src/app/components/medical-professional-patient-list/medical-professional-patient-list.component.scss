@@ -19,6 +19,7 @@ table {
 
 .mpName {
   color: #b216a6;
+  font-size: 48px;
 }
 
 button {
@@ -100,4 +101,8 @@ tr.example-element-row-selected {
 
 tr.sub-row:hover {
   background: rgba(178, 22, 166, 0.5);
+}
+
+.search-input {
+  padding-left: 16px;
 }

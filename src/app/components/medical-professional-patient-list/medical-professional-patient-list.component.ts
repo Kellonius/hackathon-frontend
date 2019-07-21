@@ -27,9 +27,13 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   columns2 = ['Generic Drug Name', 'Medical Drug Name', 'Dose', 'Frequency', 'Issue Date', 'Filled', 'Picked Up'];
 
   expandedElement: Script | null;
+
   patientList: PatientDataResponse[];
+  originalPatientList: PatientDataResponse[];
+
   user: MedicalProfessional;
 
+  searchTerm = '';
   
   addPatientDialogRef: MatDialogRef<AddPatientDialogComponent>;
 
@@ -71,15 +75,35 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   getPatientData() {
-    this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(
-      patientList => {this.patientList = patientList;
-                      console.log(this.patientList);
+    this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(response => {
+      this.patientList = response;
+      this.originalPatientList = response;
     });
   }
-
   
   fullName() {
     return this.user.firstName + ' ' + this.user.lastName;
+  }
+
+  filterPatients() {
+    let tempList = [];
+
+    this.patientList.forEach(patient => {
+      if (
+        patient.firstName == this.searchTerm ||
+        patient.lastName == this.searchTerm ||
+        patient.firstName + ' ' + patient.lastName == this.searchTerm ||
+        patient.Gender == this.searchTerm          
+      ) {
+        tempList = tempList.concat(patient);
+      }
+    });
+    this.patientList = tempList;
+  }
+
+  clearSearch() {
+    this.searchTerm = '';
+    this.patientList = this.originalPatientList;
   }
 }
 
