@@ -13,4 +13,14 @@
 
 .patient-row {
   cursor: pointer;
+  transition: 150ms;
+
+  &:hover {
+    color: white;
+    background-color: rgba(178, 22, 166, 0.8);
+  }
+
+  .mat-cell {
+    color: inherit;
+  }
 }

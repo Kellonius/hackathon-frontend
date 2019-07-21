@@ -41,7 +41,8 @@ import {Router} from '@angular/router';
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr (click)="clickRow(row)" mat-row *matRowDef="let row; columns: displayedColumns;" class="patient-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="patient-row"
+            (click)="clickRow(row)"></tr>
       </table>
     </div>
   `,
@@ -67,6 +68,6 @@ export class PatientSearchComponent implements OnInit {
   }
 
   clickRow(patient: PatientDataResponse) {
-    // this.router.navigateByUrl('patient/' + patient.PatientId);
+    this.router.navigateByUrl('patient/' + patient.id);
   }
 }

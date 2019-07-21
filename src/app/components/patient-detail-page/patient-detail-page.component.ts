@@ -4,6 +4,8 @@ import {PatientData} from '../../models/patient-data';
 import {Script} from '../../models/script';
 import {MatTableDataSource} from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
+import {PatientDataResponse} from '../../responses/patient-data-response';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-patient-detail-page',
@@ -42,8 +44,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./patient-detail-page.component.scss']
 })
 export class PatientDetailPageComponent implements OnInit {
-
-  patient: PatientData = new PatientData();
+  patientId: number;
+  patient: PatientDataResponse = new PatientDataResponse();
+  patientMedications: any[] = [];
 
   columns = ['name', 'dose', 'route', 'frequency'];
 
@@ -57,18 +60,21 @@ export class PatientDetailPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'));
+      this.patientId = +params.get('id');
     });
-    const med = new Script();
-    med.medicationId = 'Metoprolol';
-    med.dosage = '10mg';
-    med.medicationRoute = 'PO';
-    med.medicationTime = 'Twice Daily';
-    this.patient.id = 1;
-    this.patient.firstName = 'First';
-    this.patient.lastName = 'Last';
-    this.patient.Scripts = [med, med];
-    this.datasource.data = this.patient.Scripts;
+
+    forkJoin(
+      this.patientDetailService.getPatientDetailInformation(this.patientId),
+      this.patientDetailService.getPatientMedications(this.patientId)
+    ).subscribe(res => {
+      this.patient = res[0];
+      this.patientMedications = res[1];
+      console.log(this.patient);
+      console.log(this.patientMedications);
+
+      this.datasource.data = this.patient.Scripts;
+    })
+
   }
 
 }
