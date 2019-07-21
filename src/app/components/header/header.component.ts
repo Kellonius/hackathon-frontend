@@ -8,11 +8,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  link: boolean;
 
   constructor(private auth: AuthService,
               private router: Router) { }
 
   ngOnInit() {
+    this.link = window.location.href.includes('epic');
   }
 
   signOut() {

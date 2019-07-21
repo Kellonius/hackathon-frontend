@@ -32,9 +32,9 @@ export class AddPatientDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddPatientDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data,
-              private apiService: APIService) { 
+              private apiService: APIService) {
     this.mpId = this.data.mpId;
-    console.log('mpID: ' + this.mpId)
+    console.log('mpID: ' + this.mpId);
   }
 
   ngOnInit() {
@@ -93,7 +93,7 @@ addPatient(patientId: number) {
 
 searchNonPatients() {
   let tempList = [];
- 
+
   this.nonPatientList.forEach(nonPatient => {
       if (
           nonPatient.firstName == this.searchTerm ||
