@@ -59,11 +59,11 @@
 //   }
 
 //   getEmail() {
-//     if (!this.getData().email) {
+//     if (!this.getData().Email) {
 //       return '';
 //     }
 
-//     return this.getData().email;
+//     return this.getData().Email;
 //   }
 
 //   getOrgName() {

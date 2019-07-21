@@ -32,7 +32,7 @@ import {Router} from '@angular/router';
 
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef> E-mail</th>
-          <td mat-cell *matCellDef="let patient"> {{patient.email}} </td>
+          <td mat-cell *matCellDef="let patient"> {{patient.Email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="gender">
@@ -49,7 +49,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./patient-search.component.scss']
 })
 export class PatientSearchComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'dob', 'email', 'gender'];
+  displayedColumns: string[] = ['name', 'dob', 'Email', 'gender'];
   patients: PatientDataResponse[] = [];
 
   constructor(
