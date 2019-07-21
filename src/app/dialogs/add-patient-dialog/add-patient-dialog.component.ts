@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import { MedicalProfessionalService } from 'src/app/services/medical-professional/api.service';
+import { MedicalProfessionalService } from 'src/app/services/medical-professional/medical-professional.service';
 
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { PatientCreationRequest } from 'src/app/requests/patient-creation-request';

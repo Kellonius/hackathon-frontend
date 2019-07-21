@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MedicalProfessionalService } from './api.service';
+import { MedicalProfessionalService } from './medical-professional.service';
 
 describe('MedicalProfessionalService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

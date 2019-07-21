@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { MedicalProfessionalService } from 'src/app/services/medical-professional/api.service';
+import { MedicalProfessionalService } from 'src/app/services/medical-professional/medical-professional.service';
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { Script } from 'src/app/models/script';
 import {AuthService} from '../../services/auth/auth.service';
