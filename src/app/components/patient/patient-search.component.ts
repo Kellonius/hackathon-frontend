@@ -32,7 +32,7 @@ import {Router} from '@angular/router';
 
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef> E-mail</th>
-          <td mat-cell *matCellDef="let patient"> {{patient.Email}} </td>
+          <td mat-cell *matCellDef="let patient"> {{patient.email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="gender">
