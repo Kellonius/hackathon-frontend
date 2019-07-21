@@ -56,8 +56,8 @@ import {LoadingService} from './services/loading.service';
 import {LoadingInterceptor} from './shared/interceptors/loading.interceptor';
 import {AuthorizationInterceptor} from './shared/interceptors/authorization.interceptor';
 import {ErrorHandlerInterceptor} from './shared/interceptors/error-handler.interceptor';
-import { EpicIshComponent } from './components/epic-ish/epic-ish.component';
-import { MedDialogComponent } from './dialogs/med-dialog/med-dialog.component';
+import {EpicIshComponent} from './components/epic-ish/epic-ish.component';
+import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
 import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
 
 
@@ -73,9 +73,9 @@ import { MedicalReportsComponent } from './components/medical-reports/medical-re
     IncomingPrescriptionsComponent,
     OutgoingPrescriptionsComponent,
     EpicIshComponent,
-    MedDialogComponent,
     PatientSearchComponent,
     LoadingComponent,
+    EpicMedsComponent,
     MedicalReportsComponent,
   ],
   imports: [
@@ -126,7 +126,7 @@ import { MedicalReportsComponent } from './components/medical-reports/medical-re
     { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddPatientDialogComponent, MedDialogComponent]
+  entryComponents: [AddPatientDialogComponent]
 })
 export class AppModule {
 }

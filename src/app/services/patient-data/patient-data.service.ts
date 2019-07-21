@@ -3,6 +3,7 @@ import {HttpClientWrapperService} from '../http-wrapper.service';
 import {Observable} from 'rxjs';
 import {PatientDataResponse} from '../../responses/patient-data-response';
 import {MedicationModel} from '../../models/medication.model';
+import {Script} from '../../models/script';
 import {MedicationDosageModel} from '../../models/medication-dosage.model';
 
 @Injectable({

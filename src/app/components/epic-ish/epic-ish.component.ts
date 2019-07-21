@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PatientDataResponse} from '../../responses/patient-data-response';
-import {MatDialog, MatDialogConfig, MatDialogRef, MatTableDataSource} from '@angular/material';
+import {MatTableDataSource} from '@angular/material';
 import {PatientDataService} from '../../services/patient-data/patient-data.service';
-import {MedDialogComponent} from '../../dialogs/med-dialog/med-dialog.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-epic-ish',
@@ -14,9 +14,8 @@ export class EpicIshComponent implements OnInit {
   columns = ['Name', 'DOB', 'Gender'];
   users: MatTableDataSource<PatientDataResponse> = new MatTableDataSource();
 
-  medDialogRef: MatDialogRef<MedDialogComponent>;
 
-  constructor(private patientDataService: PatientDataService, private dialog: MatDialog) {
+  constructor(private patientDataService: PatientDataService, private router: Router) {
 
   }
 
@@ -25,25 +24,13 @@ export class EpicIshComponent implements OnInit {
 
   search(term) {
     this.patientDataService.searchForPatientDetails(term).subscribe(data => {
-      console.log(data);
       this.users.data = data;
     });
   }
 
-  openMedDialog(row) {
-    const config: MatDialogConfig = {
-      data: {
-        stuff: row
-      },
-      width: '80%',
-      minHeight: '500px',
-      panelClass: 'custom-dialog-container'
-    };
-
-    this.medDialogRef = this.dialog.open(MedDialogComponent, config);
-    this.medDialogRef.afterClosed().subscribe(result => {
-
-    });
+  openMedInfo(row) {
+    console.log(row);
+    this.router.navigate(['epic-ish-meds', row.PatientId]).then();
   }
 
 }
