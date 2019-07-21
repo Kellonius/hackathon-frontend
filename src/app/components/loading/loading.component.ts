@@ -18,7 +18,7 @@ export class LoadingComponent implements OnInit {
   loginDetails: UserLoginRequest = new UserLoginRequest();
   spinning = false;
 
-  constructor(private loadingService: LoadingService) {
+  constructor(public loadingService: LoadingService) {
   }
 
   ngOnInit() {

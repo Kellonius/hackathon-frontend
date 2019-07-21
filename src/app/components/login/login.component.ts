@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.loginDetails).subscribe(data => {
       if (data) {
         this.auth.loggedInUser = data;
+        localStorage.setItem("auth", JSON.stringify(data));
         this.router.navigate(['/']).then();
       } else {
         this.spinning = false;
