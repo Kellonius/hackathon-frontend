@@ -7,6 +7,7 @@ import {LoginComponent} from './components/login/login.component';
 import {AuthGuardGuard} from './guards/auth-guard.guard';
 import {IncomingPrescriptionsComponent} from './components/pharmacy/incoming/incoming-prescriptions.component';
 import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/outgoing-prescriptions.component';
+import {PatientSearchComponent} from './components/patient/patient-search.component';
 
 const routes: Routes = [
   {
@@ -47,11 +48,16 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuardGuard]
   },
-  // {
-  //   path: 'patient-search',
-  //   component: PatientDetailPageComponent
-  // },
-
+  {
+    path: 'patient-search',
+    component: PatientSearchComponent,
+    canActivate: [AuthGuardGuard]
+  },
+  {
+    path: 'patient/:id',
+    component: PatientDetailPageComponent,
+    canActivate: [AuthGuardGuard]
+  },
 ];
 
 @NgModule({
