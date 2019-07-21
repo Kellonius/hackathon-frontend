@@ -26,7 +26,6 @@ export class LoadingInterceptor implements HttpInterceptor {
         null,
         () => {
           this.loadingService.removeLoad();
-          console.log('error');
         },
         () => this.loadingService.removeLoad()
       ));

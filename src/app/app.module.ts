@@ -59,6 +59,8 @@ import {ErrorHandlerInterceptor} from './shared/interceptors/error-handler.inter
 import {EpicIshComponent} from './components/epic-ish/epic-ish.component';
 import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
 import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
+import {ChartsModule} from 'ng2-charts';
+import {ReportsChartComponent} from './components/medical-reports/charts/reports-chart.component';
 
 
 @NgModule({
@@ -77,6 +79,7 @@ import { MedicalReportsComponent } from './components/medical-reports/medical-re
     LoadingComponent,
     EpicMedsComponent,
     MedicalReportsComponent,
+    ReportsChartComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -114,7 +117,8 @@ import { MedicalReportsComponent } from './components/medical-reports/medical-re
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ChartsModule,
   ],
   providers: [
     HttpClientWrapperService,
