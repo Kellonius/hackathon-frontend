@@ -73,7 +73,7 @@ export class PatientDetailPageComponent implements OnInit {
       console.log(this.patientMedications);
 
       this.datasource.data = this.patient.Scripts;
-    })
+    });
 
   }
 

@@ -3,6 +3,7 @@ import {HttpClientWrapperService} from '../http-wrapper.service';
 import {Observable} from 'rxjs';
 import {PatientDataResponse} from '../../responses/patient-data-response';
 import {MedicationModel} from '../../models/medication.model';
+import {Script} from '../../models/script';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class PatientDataService {
     return this.httpWrapper.get('Patient/GetPatientDataById?patientId=' + id);
   }
 
-  getPatientMedications(id: number): Observable<MedicationModel[]> {
+  getPatientMedications(id: number): Observable<Script[]> {
     return this.httpWrapper.post({patientId: id}, 'Medication/GetMedications');
   }
 

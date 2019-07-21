@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MedDialogComponent } from './med-dialog.component';
+import { EpicMedsComponent } from './epic-meds.component';
 
-describe('MedDialogComponent', () => {
-  let component: MedDialogComponent;
-  let fixture: ComponentFixture<MedDialogComponent>;
+describe('EpicMedsComponent', () => {
+  let component: EpicMedsComponent;
+  let fixture: ComponentFixture<EpicMedsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MedDialogComponent ]
+      declarations: [ EpicMedsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MedDialogComponent);
+    fixture = TestBed.createComponent(EpicMedsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

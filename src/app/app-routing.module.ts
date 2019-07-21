@@ -9,6 +9,7 @@ import {IncomingPrescriptionsComponent} from './components/pharmacy/incoming/inc
 import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/outgoing-prescriptions.component';
 import {EpicIshComponent} from './components/epic-ish/epic-ish.component';
 import {PatientSearchComponent} from './components/patient/patient-search.component';
+import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'epic-ish',
     component: EpicIshComponent
+  },
+  {
+    path: 'epic-ish-meds/:id',
+    component: EpicMedsComponent
   },
 
   // {
