@@ -1,65 +1,3 @@
- <!-- <mat-accordion>
-    <mat-expansion-panel *ngFor="let patient of patientList">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{patient.name}}
-        </mat-panel-title>
-        <mat-panel-description>
-          DOB: {{patient.dob}} Gender: Male
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-    </mat-expansion-panel>
-
-
-     <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion> -->
-
-
-
-  <!-- <table class="medList" mat-table [dataSource]="patientList">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name</th>
-        <td mat-cell *matCellDef="let element">{{element.position}}</td>
-      </ng-container>
-    
-      <ng-container matColumnDef="dose">
-        <th mat-header-cell *matHeaderCellDef> Dose </th>
-        <td mat-cell *matCellDef="let element">{{element.position}}</td>
-      </ng-container>
-    
-      <ng-container matColumnDef="route">
-        <th mat-header-cell *matHeaderCellDef> Route</th>
-        <td mat-cell *matCellDef="let element">{{element.position}}</td>
-      </ng-container>
-    
-      <ng-container matColumnDef="frequency">
-        <th mat-header-cell *matHeaderCellDef> Frequency </th>
-        <td mat-cell *matCellDef="let element">{{element.position}}</td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="columns"></tr>
-      <tr mat-row *matRowDef="let row; columns: columns"></tr>
-    </table> -->
-
  <div class="top-wrapper" *ngIf="user.firstName !== undefined && user.firstName !== null">
    <div class="mpName">
      {{fullName()}}
@@ -101,8 +39,7 @@
     <td mat-cell *matCellDef="let element"> {{element.AtRisk}} </td>
   </ng-container>
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns --> -->
-   <ng-container matColumnDef="expandedDetail"> -->
+  <ng-container matColumnDef="expandedDetail"> -->
     <td mat-cell *matCellDef="let element" [attr.colspan]="6">
       <div class="example-element-detail"
            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'" colspan=6>
@@ -147,24 +84,6 @@
             <tr mat-header-row *matHeaderRowDef="columns2"></tr>
             <tr class="sub-row" mat-row *matRowDef="let row; columns: columns2"></tr>
           </table>
-
-
-
-
-
-          <!-- <div class="example-element-position"
-          *ngFor="let script of element.scripts"> 
-          {{script.drugName}} </div> -->
-          <!-- <div class="example-element-position"> {{element.dob}} </div>
-          <div class="example-element-position"> 
-            <mat-icon>error</mat-icon>
-            {{element.notifications}} 
-          </div>
-          <div class="example-element-position"> 
-              <mat-icon>error</mat-icon>
-            {{element.scriptRenewel}}
-            blah
-          </div> -->
         </div>
       </div>
     </td>

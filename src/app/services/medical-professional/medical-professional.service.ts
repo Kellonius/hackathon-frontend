@@ -9,35 +9,31 @@ import { PatientCreationRequest } from 'src/app/requests/patient-creation-reques
 @Injectable({
   providedIn: 'root'
 })
-export class APIService {
+export class MedicalProfessionalService {
 
   constructor(private httpWrapper: HttpClientWrapperService) { }
 
-  getMedicalProfessionalInformation(email: string): Observable<MedicalProfessionalResponse> {
+  getMPInformation(email: string): Observable<MedicalProfessionalResponse> {
     return this.httpWrapper.get('/MedicalProfessionals/GetMedicalProfessionalData?userEmail=' + email);
   }
 
-  getMedicalProfessionalPatientInformation(email: string): Observable<PatientDataResponse[]> {
-    return this.httpWrapper.get<PatientDataResponse[]>('MedicalProfessionals/GetPatientsForMP?userEmail=joe.doctor@stf.com');
-  }
-
-  getMP() {
-    return this.httpWrapper.get('MedicalProfessionals/GetPatientsForMP?userEmail=joe.doctor@stf.com');
+  getMPPatientInformation(email: string): Observable<PatientDataResponse[]> {
+    return this.httpWrapper.get<PatientDataResponse[]>('MedicalProfessionals/GetPatientsForMP?userEmail=' + email);
   }
 
   updateDetails(mp: MedicalProfessionalResponse) {
     this.httpWrapper.put(mp, '/medical-professional/');
   }
 
-  getNonpatientsForMP(): Observable<PatientDataResponse[]>  {
-    return this.httpWrapper.get('MedicalProfessionals/GetExistingNewPatientsForMP?userEmail=joe.doctor@stf.com');
+  getNonpatientsForMP(mpEmail: string): Observable<PatientDataResponse[]>  {
+    return this.httpWrapper.get('MedicalProfessionals/GetExistingNewPatientsForMP?userEmail=' + mpEmail);
   }
 
   addPatientToMP(mpId: number, patientId: number) {
     return this.httpWrapper.post({}, 'MedicalProfessionals/AssignPatientToMp?medicalProfessionalId=' + mpId + '&patientId=' + patientId);
   }
 
-  createPatient(request: PatientCreationRequest) {
+  createPatientTiedToMP(request: PatientCreationRequest) {
     return this.httpWrapper.post(request, 'MedicalProfessionals/CreatePatientAndTieToMP');
   }
 }

@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import { APIService } from 'src/app/services/medical-professional/api.service';
+import { MedicalProfessionalService } from 'src/app/services/medical-professional/medical-professional.service';
 
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { PatientCreationRequest } from 'src/app/requests/patient-creation-request';
@@ -15,6 +15,7 @@ export class AddPatientDialogComponent implements OnInit {
   searchTerm = '';
 
   mpId: number;
+  mpEmail: string;
 
   atRisk = false;
   firstName = '';
@@ -32,9 +33,9 @@ export class AddPatientDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddPatientDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data,
-              private apiService: APIService) {
+              private mpService: MedicalProfessionalService) {
     this.mpId = this.data.mpId;
-    console.log('mpID: ' + this.mpId);
+    this.mpEmail = this.data.email;
   }
 
   ngOnInit() {
@@ -46,15 +47,6 @@ export class AddPatientDialogComponent implements OnInit {
   }
 
   submit() {
-    // console.log('fN: ' + this.firstName);
-    // console.log('lN: ' + this.lastName);
-    // console.log('dob: ' + this.dob);
-    // console.log('gender: ' + this.gender);
-    // console.log('ssn: ' + this.ssn);
-    // console.log('email: ' + this.email);
-    // console.log('at risk: ' + this.atRisk);
-
-
     let request = {
       DOB: this.dob,
       Gender: this.gender,
@@ -67,9 +59,7 @@ export class AddPatientDialogComponent implements OnInit {
       AtRisk: this.atRisk
     };
 
-    // console.log('thing: ' + thing);
-
-    this.apiService.createPatient(request).subscribe(() => {
+    this.mpService.createPatientTiedToMP(request).subscribe(() => {
       this.atRisk = false;
       this.firstName = '';
       this.lastName = '';
@@ -81,13 +71,13 @@ export class AddPatientDialogComponent implements OnInit {
   }
 
 getNonPatients() {
-  this.apiService.getNonpatientsForMP().subscribe(patientList => {
-    this.nonPatientList = patientList;
+  this.mpService.getNonpatientsForMP(this.mpEmail).subscribe(response => {
+    this.nonPatientList = response;
   });
 }
 
 addPatient(patientId: number) {
-  this.apiService.addPatientToMP(this.mpId, patientId).subscribe(() => {
+  this.mpService.addPatientToMP(this.mpId, patientId).subscribe(() => {
   });
 }
 
@@ -106,5 +96,10 @@ searchNonPatients() {
   });
 
   this.patientList = tempList;
+}
+
+clearSearch() {
+  this.searchTerm = '';
+  this.patientList = [];
 }
 }

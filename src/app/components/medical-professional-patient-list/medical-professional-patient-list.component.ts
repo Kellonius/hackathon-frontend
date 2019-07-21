@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { APIService } from 'src/app/services/medical-professional/api.service';
+import { MedicalProfessionalService } from 'src/app/services/medical-professional/medical-professional.service';
 import { PatientDataResponse } from 'src/app/responses/patient-data-response';
 import { Script } from 'src/app/models/script';
 import {AuthService} from '../../services/auth/auth.service';
@@ -38,8 +38,9 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   addPatientDialogRef: MatDialogRef<AddPatientDialogComponent>;
 
   mpId: number;
+  email: string;
 
-  constructor(private apiService: APIService,
+  constructor(private apiService: MedicalProfessionalService,
               private authService: AuthService,
               private dialog: MatDialog) {
     console.log(this.authService.loggedInUser);
@@ -55,7 +56,8 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   openNewUserModal() {
     const config: MatDialogConfig = {
       data: {
-        mpId: this.mpId
+        mpId: this.mpId,
+        email: this.email
       },
       width: '80%',
       minHeight: '500px',
@@ -69,13 +71,14 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
   }
 
   setMpId() {
-    this.apiService.getMedicalProfessionalInformation(this.user.email).subscribe(response => {
+    this.apiService.getMPInformation(this.user.email).subscribe(response => {
       this.mpId = response.MPId;
+      this.email = response.email;
     });
   }
 
   getPatientData() {
-    this.apiService.getMedicalProfessionalPatientInformation(this.user.email).subscribe(response => {
+    this.apiService.getMPPatientInformation(this.user.email).subscribe(response => {
       this.patientList = response;
       this.originalPatientList = response;
     });
@@ -106,46 +109,3 @@ export class MedicalProfessionalPatientListComponent implements OnInit {
     this.patientList = this.originalPatientList;
   }
 }
-
-  // patientList = [
-  //   {
-  //     Name: 'Bob Ross',
-  //     DOB: '4/21/1970',
-  //     Gender: 'Male',
-  //     Risk: 'Yes',
-  //     scripts: [
-  //       {
-  //         drugName: 'drugNameTest1',
-  //         dose: 'doseTest1',
-  //         frequency: 'frequencyTest1',
-  //         issueDate: 'issueDateTest1',
-  //         filled: true,
-  //         pickedUp: false
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     Name: 'Jimothy Ross',
-  //     DOB: '7/21/1970',
-  //     Gender: 'Female',
-  //     Risk: 'No',
-  //     scripts: [
-  //       {
-  //         drugName: 'drugNameTest2',
-  //         dose: 'doseTest2',
-  //         frequency: 'frequencyTest2',
-  //         issueDate: 'issueDateTest2',
-  //         filled: false,
-  //         pickedUp: true
-  //       },
-  //       {
-  //         drugName: 'drugNameTest3',
-  //         dose: 'doseTest3',
-  //         frequency: 'frequencyTest3',
-  //         issueDate: 'issueDateTest3',
-  //         filled: false,
-  //         pickedUp: false
-  //       }
-  //     ]
-  //   }
-  // ];

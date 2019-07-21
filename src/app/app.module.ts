@@ -54,8 +54,11 @@ import {PatientSearchComponent} from './components/patient/patient-search.compon
 import {LoadingComponent} from './components/loading/loading.component';
 import {LoadingService} from './services/loading.service';
 import {LoadingInterceptor} from './shared/interceptors/loading.interceptor';
+import {AuthorizationInterceptor} from './shared/interceptors/authorization.interceptor';
+import {ErrorHandlerInterceptor} from './shared/interceptors/error-handler.interceptor';
 import {EpicIshComponent} from './components/epic-ish/epic-ish.component';
 import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
+import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
 
 
 @NgModule({
@@ -73,6 +76,7 @@ import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
     PatientSearchComponent,
     LoadingComponent,
     EpicMedsComponent,
+    MedicalReportsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -117,7 +121,9 @@ import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
     PatientDataService,
     AuthService,
     LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddPatientDialogComponent]

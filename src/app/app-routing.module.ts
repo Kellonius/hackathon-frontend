@@ -10,6 +10,7 @@ import {OutgoingPrescriptionsComponent} from './components/pharmacy/outgoing/out
 import {EpicIshComponent} from './components/epic-ish/epic-ish.component';
 import {PatientSearchComponent} from './components/patient/patient-search.component';
 import {EpicMedsComponent} from './components/epic-meds/epic-meds.component';
+import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
 
 const routes: Routes = [
   {
@@ -25,10 +26,10 @@ const routes: Routes = [
     component: MedicalProfessionalPatientListComponent,
     canActivate: [AuthGuardGuard]
   },
-   // {
-  //   path: 'pharmacy/:id',
-  //   component: PatientDetailPageComponent
-  // }
+   {
+    path: 'reports',
+    component: MedicalReportsComponent
+  },
   {
     path: 'pharmacy/incoming',
     component: IncomingPrescriptionsComponent,

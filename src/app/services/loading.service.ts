@@ -17,6 +17,7 @@ export class LoadingService {
    */
   addLoad() {
     this.loadCount++;
+    console.log(this.loadCount);
   }
 
   /**
@@ -28,5 +29,6 @@ export class LoadingService {
     if (this.isLoading()) {
       this.loadCount--;
     }
+    console.log(this.loadCount);
   }
 }

@@ -1,4 +1,5 @@
 export class Script {
+  ScriptId: number;
   MedicationId: string;
   MedicationGenericName: string;
   MedicationMedicalName: string;
