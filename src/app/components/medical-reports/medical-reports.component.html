@@ -26,19 +26,11 @@
       <mat-expansion-panel-header>
         <mat-panel-title>
           <span class="header-text">{{yearlyReport.Year}}</span>
-          <!-- <span class="percentage header-text">{{calculateForYear(yearlyReport)}}% Picked Up</span> -->
         </mat-panel-title>
         <mat-panel-description>
           {{calculateForYear(yearlyReport)}}% Picked Up
         </mat-panel-description>
       </mat-expansion-panel-header>
-  
-      <!-- <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field> -->
-
-
-
       <table class="report-table" mat-table [dataSource]="yearlyReport.MonthlyReports">
           <ng-container matColumnDef="Month">
             <th mat-header-cell *matHeaderCellDef> Month</th>
@@ -63,54 +55,5 @@
           <tr mat-header-row *matHeaderRowDef="columns"></tr>
           <tr mat-row *matRowDef="let row; columns: columns"></tr>
       </table>
-
-
-
-
-
-  
-      <!-- <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field> -->
     </mat-expansion-panel>
-
-
-
-
-
-
-
-    <!-- <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel> -->
   </mat-accordion>
-
-
-<!-- <table class="report-table" mat-table [dataSource]="reports">
-    <ng-container matColumnDef="Name">
-      <th mat-header-cell *matHeaderCellDef> Name</th>
-      <td mat-cell *matCellDef="let element">{{element.firstName + ' ' + element.lastName}}</td>
-    </ng-container>
-  
-    <ng-container matColumnDef="DOB">
-      <th mat-header-cell *matHeaderCellDef> DOB </th>
-      <td mat-cell *matCellDef="let element">{{element.DOB}}</td>
-    </ng-container>
-  
-    <ng-container matColumnDef="Gender">
-      <th mat-header-cell *matHeaderCellDef> Gender</th>
-      <td mat-cell *matCellDef="let element">{{element.Gender}}</td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row *matRowDef="let row; columns: columns"></tr>
-</table> -->
