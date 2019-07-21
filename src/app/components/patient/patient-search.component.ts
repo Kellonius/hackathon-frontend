@@ -68,6 +68,6 @@ export class PatientSearchComponent implements OnInit {
   }
 
   clickRow(patient: PatientDataResponse) {
-    this.router.navigateByUrl('patient/' + patient.id);
+    this.router.navigateByUrl('patient/' + patient.PatientId);
   }
 }
