@@ -46,15 +46,6 @@ export class AddPatientDialogComponent implements OnInit {
   }
 
   submit() {
-    // console.log('fN: ' + this.firstName);
-    // console.log('lN: ' + this.lastName);
-    // console.log('dob: ' + this.dob);
-    // console.log('gender: ' + this.gender);
-    // console.log('ssn: ' + this.ssn);
-    // console.log('email: ' + this.email);
-    // console.log('at risk: ' + this.atRisk);
-
-
     let request = {
       DOB: this.dob,
       Gender: this.gender,
@@ -66,8 +57,6 @@ export class AddPatientDialogComponent implements OnInit {
       password: this.ssn,
       AtRisk: this.atRisk
     };
-
-    // console.log('thing: ' + thing);
 
     this.apiService.createPatient(request).subscribe(() => {
       this.atRisk = false;
@@ -81,8 +70,8 @@ export class AddPatientDialogComponent implements OnInit {
   }
 
 getNonPatients() {
-  this.apiService.getNonpatientsForMP().subscribe(patientList => {
-    this.nonPatientList = patientList;
+  this.apiService.getNonpatientsForMP().subscribe(response => {
+    this.nonPatientList = response;
   });
 }
 
@@ -107,4 +96,10 @@ searchNonPatients() {
 
   this.patientList = tempList;
 }
+
+clearSearch() {
+  this.searchTerm = '';
+  this.patientList = [];
+}
+
 }
