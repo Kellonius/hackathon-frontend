@@ -25,7 +25,7 @@ export class AuthService {
   fakeLogin() {
     const user = new MedicalProfessional();
     user.id = 54;
-    user.Email = 'joe.doctor@stf.com';
+    user.email = 'joe.doctor@stf.com';
     user.firstName = 'Joe';
     user.lastName = 'Doctor';
     this.loggedInUser = user;

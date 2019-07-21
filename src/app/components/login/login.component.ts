@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   async login(username, password) {
     this.spinning = true;
     await this.delay(1500);
-    this.loginDetails.Email = username;
+    this.loginDetails.email = username;
     this.loginDetails.password = password;
     this.auth.login(this.loginDetails).subscribe(data => {
       if (data) {
