@@ -4,6 +4,10 @@
   <mat-menu #menu="matMenu" xPosition="before">
     <button class="menu-item" mat-menu-item routerLink="/medical-professional/1">Edit Details</button>
     <button class="menu-item" mat-menu-item routerLink="/reports">Reports</button>
+    <button class="menu-item" mat-menu-item routerLink="/reports/charts">Reports (Charts)</button>
+    <button class="menu-item" mat-menu-item routerLink="/patient-search">Patient Search</button>
+    <button class="menu-item" mat-menu-item routerLink="/pharmacy/incoming">Pharmacy (To Be Filled)</button>
+    <button class="menu-item" mat-menu-item routerLink="/pharmacy/outgoing">Pharmacy (To Be Picked Up)</button>
     <button class="menu-item" mat-menu-item (click)="signOut()">Sign Out</button>
   </mat-menu>
 </div>
