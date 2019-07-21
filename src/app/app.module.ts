@@ -58,6 +58,7 @@ import {AuthorizationInterceptor} from './shared/interceptors/authorization.inte
 import {ErrorHandlerInterceptor} from './shared/interceptors/error-handler.interceptor';
 import { EpicIshComponent } from './components/epic-ish/epic-ish.component';
 import { MedDialogComponent } from './dialogs/med-dialog/med-dialog.component';
+import { MedicalReportsComponent } from './components/medical-reports/medical-reports.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { MedDialogComponent } from './dialogs/med-dialog/med-dialog.component';
     MedDialogComponent,
     PatientSearchComponent,
     LoadingComponent,
+    MedicalReportsComponent,
   ],
   imports: [
     AppRoutingModule,
